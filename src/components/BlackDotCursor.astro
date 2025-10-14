@@ -1,0 +1,23 @@
+<div id="custom-cursor-circle" class="custom-cursor"></div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const cursor = document.getElementById('custom-cursor-circle')
+        const hoverTargets = document.querySelectorAll('.black-dot-cursor')
+        if (!cursor) return
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`
+        })
+
+        hoverTargets.forEach((target) => {
+            target.addEventListener('mouseenter', () => {
+                cursor.classList.add('expanded')
+            })
+
+            target.addEventListener('mouseleave', () => {
+                cursor.classList.remove('expanded')
+            })
+        })
+    })
+</script>

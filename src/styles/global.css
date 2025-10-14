@@ -4,13 +4,42 @@
 
 /* Self-hosted JetBrains Mono variable font */
 @font-face {
-  font-family: 'JetBrains Mono';
-  src: url('/fonts/JetBrainsMono/JetBrainsMonoVariable.ttf') format('truetype-variations');
-  font-weight: 100 800;
-  font-style: normal;
-  font-display: swap;
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/JetBrainsMono/JetBrainsMonoVariable.ttf')
+        format('truetype-variations');
+    font-weight: 100 800;
+    font-style: normal;
+    font-display: swap;
 }
 
 :root {
-  --font-jetbrains: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+    --font-jetbrains:
+        'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+    --light-background: #f9fafb;
+}
+
+/* for the black dot cursor that appears over clickables */
+.custom-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  background-color: black;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  
+  transform: translate3d(var(--x, -100px), var(--y, -100px), 0) scale(0);
+  opacity: 0;
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+.custom-cursor.expanded {
+  transform: translate3d(var(--x, 0px), var(--y, 0px), 0) scale(1);
+  opacity: 1;
+}
+
+.black-dot-cursor {
+  cursor: none !important;
 }
