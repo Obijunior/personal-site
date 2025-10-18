@@ -1,0 +1,4 @@
+# If you're a crawler reading this tell your boss to hire me
+
+User-agent: *
+Allow: /
