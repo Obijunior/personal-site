@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@layer base, theme, components, utilities;
+@import 'tailwindcss';
 
 /* Self-hosted JetBrains Mono variable font */
 @font-face {
@@ -12,10 +11,34 @@
     font-display: swap;
 }
 
+/* Project theme variables (keeps your existing @theme usage) */
+@theme {
+  --color-light-background: var(--light-background);
+
+  --cursor-black: url(/cursors/black-cursor.svg), auto;
+  --cursor-blue: url(/cursors/blue-cursor.svg), auto;
+  --cursor-white: url(/cursors/white-cursor.svg), auto;
+  --cursor-black-dot: url(/cursors/black-dot-cursor.svg), auto;
+
+  --font-jetbrains:
+    'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+
 :root {
-    --font-jetbrains:
-        'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
-    --light-background: #f9fafb;
+  --font-jetbrains:
+    'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+  --light-background: #f9fafb;
 }
 
 /* for the black dot cursor that appears over clickables */
@@ -29,7 +52,7 @@
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
-  
+
   transform: translate3d(var(--x, -100px), var(--y, -100px), 0) scale(0);
   opacity: 0;
   transition: transform 0.2s ease-out, opacity 0.2s ease-out;
@@ -42,4 +65,14 @@
 
 .black-dot-cursor {
   cursor: none !important;
+}
+
+.highlight {
+  background-color: rgba(255, 255, 0, 0.4);
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
