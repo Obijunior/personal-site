@@ -43,3 +43,13 @@
 .black-dot-cursor {
   cursor: none !important;
 }
+
+.highlight {
+    background-color: rgba(255, 255, 0, 0.4);
+    padding: 0 2px;
+    border-radius: 2px;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
