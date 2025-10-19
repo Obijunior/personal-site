@@ -11,14 +11,18 @@
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.9",
     "@astrojs/svelte": "^7.2.0",
+    "@lucide/astro": "^0.546.0",
     "astro": "^5.14.1",
+    "mode-watcher": "^1.1.0",
     "pinata": "^2.5.0",
     "svelte": "^5.39.7",
     "typescript": "^5.9.2"
   },
   "devDependencies": {
-    "@lucide/svelte": "^0.546.0",
+    "@internationalized/date": "^3.10.0",
+    "@lucide/svelte": "^0.544.0",
     "@tailwindcss/vite": "^4.1.14",
+    "bits-ui": "^2.14.0",
     "clsx": "^2.1.1",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.7.1",
