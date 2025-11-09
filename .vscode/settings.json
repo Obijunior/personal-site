@@ -1,4 +1,4 @@
 {
     "postman.settings.dotenv-detection-notification-visibility": false,
-    "svg.preview.background": "transparent"
+    "svg.preview.background": "editor"
 }

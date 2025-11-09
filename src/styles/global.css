@@ -161,7 +161,7 @@
 :root {
   --font-jetbrains:
     'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
-  --light-background: #f9fafb;
+  --light-background: #dad7cd;
 }
 
 /* for the black dot cursor that appears over clickables */
