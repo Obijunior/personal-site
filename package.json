@@ -9,10 +9,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^12.6.9",
-    "@astrojs/svelte": "^7.2.0",
+    "@astrojs/cloudflare": "^12.6.12",
+    "@astrojs/svelte": "^7.2.3",
     "@lucide/astro": "^0.546.0",
-    "astro": "^5.14.1",
+    "astro": "^5.16.5",
     "mode-watcher": "^1.1.0",
     "pinata": "^2.5.0",
     "svelte": "^5.39.7",
