@@ -18,8 +18,8 @@
       period: '10/2025 - Present',
       location: 'Lawrence, KS',
       website: 'tradewarlab.com',
-      description: 'Led development of scalable e-commerce solutions, architected microservices infrastructure, and mentored cross-functional engineering teams to deliver high-performance retail platforms.',
-      technologies: ['React', 'Node.js', 'AWS', 'Microservices', 'Docker'],
+      description: 'Conducted qualitative analysis of trade policy impacts using the TIES framework and academic literature. Performed data entry, dataset preparation, and trained in R for statistical analysis. Contributed to U.S.-China Trade War research through dynamic simulation modeling and helped develop the online simulation platform using React and C#.',
+      technologies: ['R', 'C#', 'React', 'Qualitative Analysis'],
     },
     {
       id: 'kuit',
@@ -37,8 +37,8 @@
       period: '09/2023 - 05/2024',
       location: 'Kansas City, MO',
       website: 'sardius.media',
-      description: 'Maintained top-rated freelance status while delivering high-quality full-stack solutions for diverse clients worldwide across various industries and technologies.',
-      technologies: ['Full Stack', 'React'],
+      description: 'Learned and implemented React, and contributed to brainstorming and planning sessions. Learned about general software engineering practices like version control and the Agile methodology.',
+      technologies: ['Software Engineering', 'React'],
     }
   ];
 
@@ -49,7 +49,7 @@
   }
 </script>
 
-<section class="w-full px-4 font-jetbrains mb-16">
+<section id="experience" class="w-full px-4 font-jetbrains mb-16">
   <div class="max-w-7xl mx-auto">
     <!-- Section Title -->
     <div class="text-center mb-12">
@@ -126,6 +126,6 @@
 
 <style>
   .rotate-180 {
-    transform: rotate(180deg);
+    transform: rotate(0deg);
   }
 </style>

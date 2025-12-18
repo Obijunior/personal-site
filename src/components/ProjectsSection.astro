@@ -13,21 +13,21 @@ interface ProjectData {
 const projects: ProjectData[] = [
   {
     title: 'TerraNova',
-    description: 'TerraNova is an on-chain commodity trading platform that lets users explore markets and transact through the XRP Ledger.',
+    description: 'TerraNova is an on-chain commodity trading platform that lets users explore markets for real world assets and transact through the XRP Ledger.',
     thumbnail: '/images/TerraNovaPics/terraNovaHomepage.png',
     technologies: ['Next.js', 'TailwindCSS', 'XRPL'],
     link: 'https://github.com/Obijunior/kubi-cohort-2025',
   },
   {
     title: 'Echidna',
-    description: 'The second project showcasing different technologies and a unique approach to problem-solving.',
-    thumbnail: '',
+    description: 'Helped develop 3 different types of rootkit (LKM, DLH, eBPF) for the Mythic C2 framework as part of a VICEROY research project. Not public yet :(',
+    thumbnail: '/images/mythic-c2.jpg',
     technologies: ['C', 'Mythic C2'],
     link: 'https://github.com/JamesNKing/echidna',
   },
   {
     title: 'ZillowNFT',
-    description: 'A web3 proof of concept for usings NFTs in place of the traditional home escrow process.',
+    description: 'A web3 proof of concept for using NFTs in place of the traditional home escrow process.',
     thumbnail: '/images/ZillowNFT.png',
     technologies: ['Next.js', 'TailwindCSS', 'Solidity'],
     link: 'https://github.com/FarrellJoswara/Block-a-Thon/tree/main',
@@ -35,13 +35,13 @@ const projects: ProjectData[] = [
 ];
 ---
 
-<div class="w-full px-4 font-jetbrains mb-16">
+<div id="projects" class="w-full px-4 font-jetbrains mb-16">
   <div class="text-center mb-12">
     <h1 class="text-4xl font-bold text-gray-900 mb-4">Projects</h1>
   </div>
   
   <!-- Grid Layout: 2 columns -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-7xl mx-auto">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-7xl mx-auto pb-16">
     {projects.map((project) => (
       <Project
         title={project.title}
