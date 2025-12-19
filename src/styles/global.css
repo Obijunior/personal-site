@@ -1,9 +1,10 @@
 @layer base, theme, components, utilities;
 @import "tailwindcss";
-
-
-/* Base shadcn-ui */
 @import "tw-animate-css";
+
+html {
+  scroll-behavior: smooth;
+}
 
 @custom-variant dark (&:is(.dark *));
 
@@ -195,8 +196,3 @@
   padding: 0 2px;
   border-radius: 2px;
 }
-
-/* leaving in case i do something different with the scroll bar */
-/* body::-webkit-scrollbar {
-  display: none;
-} */
