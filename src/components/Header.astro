@@ -38,12 +38,12 @@ const navLinks = [
     <div class="w-full px-8 py-4 relative">
         <p class="font-bold text-xl">Henry Nwagwu</p>
         <nav class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
-            <ul class="flex justify-center gap-24 wd-fit">
+            <ul class="flex justify-center gap-24 w-fit mx-auto black-dot-cursor">
                 {navLinks.map((link) => (
                     <li class="list-none">
                         <a 
                             href={link.href} 
-                            class="relative no-underline font-medium transition-all duration-200 hover:text-emerald-400 hover:scale-110 inline-block black-dot-cursor px-4 py-2"
+                            class="relative no-underline font-medium transition-all duration-200 hover:text-emerald-400 hover:scale-110 inline-block py-2 black-dot-cursor"
                         >
                             {link.name}
                         </a>

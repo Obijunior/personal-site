@@ -179,7 +179,7 @@ html {
 
   transform: translate3d(var(--x, -100px), var(--y, -100px), 0) scale(0);
   opacity: 0;
-  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+  transition: transform 0.1s ease-out, opacity 0.1s ease-out;
 }
 
 .custom-cursor.expanded {
