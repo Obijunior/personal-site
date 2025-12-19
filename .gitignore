@@ -4,6 +4,10 @@ dist/
 # generated types
 .astro/
 
+#random ./ folders
+.vscode/
+.wrangler/
+
 # dependencies
 node_modules/
 
