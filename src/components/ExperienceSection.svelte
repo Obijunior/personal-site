@@ -63,7 +63,7 @@
           <!-- Header (Always Visible) -->
           <button
             on:click={() => toggleExpand(exp.id)}
-            class="w-full px-6 py-5 flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
+            class="w-full px-6 py-5 flex items-center justify-between hover:bg-gray-50 transition-colors duration-200 black-dot-cursor"
           >
             <div class="text-left flex-1">
               <h3 class="text-xl font-semibold text-gray-900">
