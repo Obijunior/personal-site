@@ -5,8 +5,9 @@ import Project from './Project.astro';
 interface ProjectData {
   title: string;
   description: string;
-  thumbnail: string;
+  thumbnail?: string;
   technologies: string[];
+  hostedLink?: string;
   link?: string;
 }
 
@@ -14,23 +15,44 @@ const projects: ProjectData[] = [
   {
     title: 'TerraNova',
     description: 'TerraNova is an on-chain commodity trading platform that lets users explore markets for real world assets and transact through the XRP Ledger.',
-    thumbnail: '/images/TerraNovaPics/terraNovaHomepage.png',
-    technologies: ['Next.js', 'TailwindCSS', 'XRPL'],
+    // thumbnail: '/images/TerraNovaPics/terraNovaHomepage.png',
+    technologies: ['Next.js', 'TailwindCSS', 'XRPL', 'Blockchain'],
+    hostedLink: 'https://kubi-cohort-2025.vercel.app/',
     link: 'https://github.com/Obijunior/kubi-cohort-2025',
   },
   {
     title: 'Echidna',
     description: 'Helped develop 3 different types of rootkit (LKM, DLH, eBPF) for the Mythic C2 framework as part of a VICEROY research project. Not public yet :(',
-    thumbnail: '/images/mythic-c2.jpg',
+    // thumbnail: '/images/mythic-c2.jpg',
     technologies: ['C', 'Mythic C2'],
     link: 'https://github.com/JamesNKing/echidna',
   },
   {
     title: 'ZillowNFT',
-    description: 'A web3 proof of concept for using NFTs in place of the traditional home escrow process.',
-    thumbnail: '/images/ZillowNFT.png',
-    technologies: ['Next.js', 'TailwindCSS', 'Solidity'],
+    description: 'A web3 proof of concept for buying and selling home deeds using NFTs in place of the traditional home escrow process.',
+    // thumbnail: '/images/ZillowNFT.png',
+    technologies: ['Next.js', 'TailwindCSS', 'Solidity', 'Blockchain'],
     link: 'https://github.com/FarrellJoswara/Block-a-Thon/tree/main',
+  },
+  {
+    title: 'This Website!',
+    description: 'My personal portfolio website built with Astro and Svelte.',
+    technologies: ['Astro', 'Svelte', 'TailwindCSS'],
+    hostedLink: 'https://henrynwagwu.me/',
+    link: 'https://github.com/Obijunior/personal-site',
+  },
+  {
+    title: 'Campus Shield',
+    description: 'Onchain emergency fund for university students, powered by USDC on Base',
+    technologies: ['Next.js', 'TailwindCSS', 'Solidity', 'Ethereum', 'Base', 'Blockchain'],
+    hostedLink: 'https://mbc-2025.vercel.app/',
+    link: 'https://github.com/Obijunior/mbc-2025',
+  },
+  {
+    title: 'Portfolio Allocator',
+    description: 'A research-focused toolkit for building and backtesting portfolio allocation strategies on a small ETF universe',
+    technologies: ['Finance', 'Machine Learning', 'Python', 'Pandas', 'NumPy', 'Matplotlib', 'Scikit-learn'],
+    link: 'https://github.com/Obijunior/portfolio-allocator',
   },
 ];
 ---
@@ -41,13 +63,14 @@ const projects: ProjectData[] = [
   </div>
   
   <!-- Grid Layout: 2 columns -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-7xl mx-auto pb-16">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-start max-w-7xl mx-auto pb-16">
     {projects.map((project) => (
       <Project
         title={project.title}
         description={project.description}
         thumbnail={project.thumbnail}
         technologies={project.technologies}
+        hostedLink={project.hostedLink}
         link={project.link}
       />
     ))}

@@ -2,23 +2,36 @@
 interface Props {
   title: string;
   description: string;
-  thumbnail: string;
+  thumbnail?: string;
   technologies: string[];
+  hostedLink?: string;
   link?: string;
 }
 
-const { title, description, thumbnail, technologies, link = '#' } = Astro.props;
+const { title, description, thumbnail, technologies, hostedLink, link = '#' } = Astro.props;
 ---
 
-<div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
+<div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col">
   <!-- Thumbnail -->
-  <div class="w-full overflow-hidden bg-gray-200 flex-shrink-0 aspect-video">
-    <img src={thumbnail} alt={title} class="w-full h-full object-cover" />
-  </div>
+  {thumbnail ? (
+    <div class="w-full overflow-hidden bg-gray-200 flex-shrink-0 aspect-video">
+      <img src={thumbnail} alt={title} class="w-full h-full object-cover" />
+    </div>
+  ) : (
+    <div class="px-6 pt-6">
+      <div class="h-1.5 w-16 rounded-full bg-emerald-500/80"></div>
+    </div>
+  )}
   
   <!-- Content -->
   <div class="p-6 flex flex-col flex-grow">
-    <h3 class="text-2xl font-semibold mb-3 text-gray-900">{title}</h3>
+    {hostedLink ? (
+      <a href={hostedLink} target='_blank' class="inline-block underline underline-offset-5 text-gray-900 hover:text-emerald-600 black-dot-cursor">
+        <h3 class="text-2xl font-semibold mb-3">{title}</h3>
+      </a>
+    ) : (
+      <h3 class="text-2xl font-semibold mb-3 text-gray-900">{title}</h3>
+    )}
     <p class="text-gray-600 text-base mb-6 line-clamp-5 flex-grow">{description}</p>
     
     <!-- Technologies -->
@@ -32,7 +45,7 @@ const { title, description, thumbnail, technologies, link = '#' } = Astro.props;
     
     <!-- Link -->
     <a href={link} class="inline-block text-blue-500 hover:text-blue-700 font-medium text-base black-dot-cursor">
-      View Project →
+      View Project on Github →
     </a>
   </div>
 </div>
