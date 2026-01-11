@@ -1,9 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import ProjectsSection from '../components/ProjectsSection.astro'
+
 import Intro from '../components/Intro.astro'
 import Header from '../components/Header.astro'
+
+import ProjectsSection from '../components/ProjectsSection.astro'
 import ExperienceSection from '../components/ExperienceSection.svelte'
+
 import "../styles/global.css"
 ---
 
@@ -12,8 +15,10 @@ import "../styles/global.css"
         class="min-h-screen flex flex-col items-center justify-start bg-light-background">
         <Header />
         <Intro />
-        <ProjectsSection />
         <ExperienceSection client:load />
+        <br>
+        <br>
+        <ProjectsSection />
     </main>
 </Layout>
 

@@ -11,7 +11,7 @@ interface Props {
 const { title, description, thumbnail, technologies, hostedLink, link = '#' } = Astro.props;
 ---
 
-<div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col">
+<div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col h-full">
   <!-- Thumbnail -->
   {thumbnail ? (
     <div class="w-full overflow-hidden bg-gray-200 flex-shrink-0 aspect-video">

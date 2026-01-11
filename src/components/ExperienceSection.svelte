@@ -49,7 +49,7 @@
   }
 </script>
 
-<section id="experience" class="w-full px-4 font-jetbrains mb-16">
+<section id="experience" class="w-full px-4 font-jetbrains mt-12 mb-16">
   <div class="max-w-7xl mx-auto">
     <!-- Section Title -->
     <div class="text-center mb-12">

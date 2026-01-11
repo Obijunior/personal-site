@@ -54,16 +54,22 @@ const projects: ProjectData[] = [
     technologies: ['Finance', 'Machine Learning', 'Python', 'Pandas', 'NumPy', 'Matplotlib', 'Scikit-learn'],
     link: 'https://github.com/Obijunior/portfolio-allocator',
   },
+  {
+    title: 'Black-Scholes Option Pricing',
+    description: 'A Python implementation of the Black-Scholes option pricing model',
+    technologies: ['Finance', 'Python', 'NumPy', 'Pandas'],
+    link: 'https://github.com/Obijunior/black-scholes-implementation',
+  },
 ];
 ---
 
-<div id="projects" class="w-full px-4 font-jetbrains mb-16">
+<div id="projects" class="w-full px-4 font-jetbrains mb-24">
   <div class="text-center mb-12">
     <h1 class="text-4xl font-bold text-gray-900 mb-4">Projects</h1>
   </div>
   
   <!-- Grid Layout: 2 columns -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-start max-w-7xl mx-auto pb-16">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 items-stretch auto-rows-fr max-w-7xl mx-auto pb-12">
     {projects.map((project) => (
       <Project
         title={project.title}
