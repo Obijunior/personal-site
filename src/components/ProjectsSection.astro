@@ -14,7 +14,7 @@ interface ProjectData {
 const projects: ProjectData[] = [
   {
     title: 'TerraNova',
-    description: 'TerraNova is an on-chain commodity trading platform that lets users explore markets for real world assets and transact through the XRP Ledger.',
+    description: 'On-chain commodity trading platform that lets users explore markets for real world assets and transact through the XRP Ledger. Won Best Business Analysis and Best Use of XRPL as a cohort capstone project',
     // thumbnail: '/images/TerraNovaPics/terraNovaHomepage.png',
     technologies: ['Next.js', 'TailwindCSS', 'XRPL', 'Blockchain'],
     hostedLink: 'https://kubi-cohort-2025.vercel.app/',
@@ -24,14 +24,14 @@ const projects: ProjectData[] = [
     title: 'Echidna',
     description: 'Helped develop 3 different types of rootkit (LKM, DLH, eBPF) for the Mythic C2 framework as part of a VICEROY research project. Not public yet :(',
     // thumbnail: '/images/mythic-c2.jpg',
-    technologies: ['C', 'Mythic C2'],
+    technologies: ['C', 'Mythic C2', 'Cybersecurity'],
     link: 'https://github.com/JamesNKing/echidna',
   },
   {
     title: 'ZillowNFT',
-    description: 'A web3 proof of concept for buying and selling home deeds using NFTs in place of the traditional home escrow process.',
+    description: 'A web3 proof of concept for buying and selling home deeds using NFTs in place of the traditional home escrow process. Won best beginner project at a hack-a-thon',
     // thumbnail: '/images/ZillowNFT.png',
-    technologies: ['Next.js', 'TailwindCSS', 'Solidity', 'Blockchain'],
+    technologies: ['Next.js', 'TailwindCSS', 'Solidity'],
     link: 'https://github.com/FarrellJoswara/Block-a-Thon/tree/main',
   },
   {
@@ -44,7 +44,7 @@ const projects: ProjectData[] = [
   {
     title: 'Campus Shield',
     description: 'Onchain emergency fund for university students, powered by USDC on Base',
-    technologies: ['Next.js', 'TailwindCSS', 'Solidity', 'Ethereum', 'Base', 'Blockchain'],
+    technologies: ['Next.js', 'TailwindCSS', 'Solidity', 'Ethereum', 'Base'],
     hostedLink: 'https://mbc-2025.vercel.app/',
     link: 'https://github.com/Obijunior/mbc-2025',
   },
@@ -60,12 +60,24 @@ const projects: ProjectData[] = [
     technologies: ['Finance', 'Python', 'NumPy', 'Pandas'],
     link: 'https://github.com/Obijunior/black-scholes-implementation',
   },
+  {
+    title: 'VBRCC',
+    description: 'A very basic C compiler and assembler written in Rust.',
+    technologies: ['Rust', 'Assembly', 'Compilers', 'C'],
+    link: 'https://github.com/Obijunior/vbrcc',
+  },
+  {
+    title: 'Fossl',
+    description: 'Web-based MVP for managing digital wills tied to blockchain wallet addresses, through smart contracts. 3rd place in Ripple track at a hack-a-thon',
+    technologies: ['XRPL', 'Typescript', 'Gemini API', 'Pinata/IPFS', 'Solidity'],
+    link: 'https://github.com/FarrellJoswara/MidwestBlockathon2026',
+  },
 ];
 ---
 
-<div id="projects" class="w-full px-4 font-jetbrains mb-24">
-  <div class="text-center mb-12">
-    <h1 class="text-4xl font-bold text-gray-900 mb-4">Projects</h1>
+<div id="projects" class="w-full px-4 mb-24 font-sans">
+  <div class="text-center mb-16">
+    <h1 class="text-4xl font-bold font-serif text-jewel-green mb-4">Projects</h1>
   </div>
   
   <!-- Grid Layout: 2 columns -->

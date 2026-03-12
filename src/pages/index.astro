@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro'
 
-import Intro from '../components/Intro.astro'
+import HeroSection from '../components/HeroSection.astro'
 import Header from '../components/Header.astro'
 
 import ProjectsSection from '../components/ProjectsSection.astro'
@@ -12,9 +12,9 @@ import "../styles/global.css"
 
 <Layout>
     <main
-        class="min-h-screen flex flex-col items-center justify-start bg-light-background">
+        class="min-h-screen flex flex-col items-center justify-start bg-parchment">
         <Header />
-        <Intro />
+        <HeroSection />
         <ExperienceSection client:load />
         <br>
         <br>

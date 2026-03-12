@@ -11,7 +11,7 @@ interface Props {
 const { title, description, thumbnail, technologies, hostedLink, link = '#' } = Astro.props;
 ---
 
-<div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col h-full">
+<div class="bg-parchment-dark/60 border border-jewel-green/10 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col h-full">
   <!-- Thumbnail -->
   {thumbnail ? (
     <div class="w-full overflow-hidden bg-gray-200 flex-shrink-0 aspect-video">
@@ -19,33 +19,33 @@ const { title, description, thumbnail, technologies, hostedLink, link = '#' } = 
     </div>
   ) : (
     <div class="px-6 pt-6">
-      <div class="h-1.5 w-16 rounded-full bg-emerald-500/80"></div>
+      <div class="h-1 w-16 bg-jewel-green/80"></div>
     </div>
   )}
   
   <!-- Content -->
   <div class="p-6 flex flex-col flex-grow">
     {hostedLink ? (
-      <a href={hostedLink} target='_blank' class="inline-block underline underline-offset-5 text-gray-900 hover:text-emerald-600 black-dot-cursor">
-        <h3 class="text-2xl font-semibold mb-3">{title}</h3>
+      <a href={hostedLink} target='_blank' class="inline-block text-ink hover:text-jewel-green transition-colors duration-200 black-dot-cursor">
+        <h3 class="text-2xl font-bold font-serif mb-3 tracking-wide">{title}</h3>
       </a>
     ) : (
-      <h3 class="text-2xl font-semibold mb-3 text-gray-900">{title}</h3>
+      <h3 class="text-2xl font-bold font-serif mb-3 text-ink tracking-wide">{title}</h3>
     )}
-    <p class="text-gray-600 text-base mb-6 line-clamp-5 flex-grow">{description}</p>
+    <p class="text-ink/80 text-base mb-6 line-clamp-5 flex-grow font-medium leading-relaxed">{description}</p>
     
     <!-- Technologies -->
     <div class="mb-6 flex flex-wrap gap-2">
       {technologies.map((tech) => (
-        <span class="inline-block bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded">
+        <span class="inline-block bg-jewel-sapphire/10 text-jewel-sapphire border border-jewel-sapphire/20 font-medium text-xs px-3 py-1 rounded-full">
           {tech}
         </span>
       ))}
     </div>
     
     <!-- Link -->
-    <a href={link} class="inline-block text-blue-500 hover:text-blue-700 font-medium text-base black-dot-cursor">
-      View Project on Github →
+    <a href={link} class="inline-block text-jewel-green-light hover:text-jewel-green font-medium text-sm tracking-wide uppercase mt-auto black-dot-cursor transition-colors duration-200">
+      View Project →
     </a>
   </div>
 </div>

@@ -34,16 +34,16 @@ const navLinks = [
 </script>
 
 <nav
-    class="fixed hidden md:flex top-0 left-0 w-full bg-gray-200 dark:bg-emerald-900 backdrop-blur-md z-1000 border-b border-(--border-color) font-jetbrains">
+    class="fixed hidden md:flex top-0 left-0 w-full bg-jewel-green/95 dark:bg-ink/95 backdrop-blur-md z-1000 border-b border-jewel-green-light/20 font-sans">
     <div class="w-full px-8 py-4 relative">
-        <p class="font-bold text-xl">Henry Nwagwu</p>
+        <p class="font-bold font-serif text-parchment text-xl tracking-wide">Henry Nwagwu</p>
         <nav class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
             <ul class="flex justify-center gap-24 w-fit mx-auto black-dot-cursor">
                 {navLinks.map((link) => (
                     <li class="list-none">
                         <a 
                             href={link.href} 
-                            class="relative no-underline font-medium transition-all duration-200 hover:text-emerald-400 hover:scale-110 inline-block py-2 black-dot-cursor"
+                            class="relative no-underline font-medium text-parchment/80 transition-all duration-300 hover:text-parchment hover:-translate-y-0.5 inline-block py-2 black-dot-cursor"
                         >
                             {link.name}
                         </a>

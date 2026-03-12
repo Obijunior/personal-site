@@ -49,32 +49,32 @@
   }
 </script>
 
-<section id="experience" class="w-full px-4 font-jetbrains mt-12 mb-16">
+<section id="experience" class="w-full px-4 font-sans mt-12 mb-16">
   <div class="max-w-7xl mx-auto">
     <!-- Section Title -->
     <div class="text-center mb-12">
-      <h1 class="text-4xl font-bold text-gray-900 mb-4">Professional Experience</h1>
+      <h1 class="text-4xl font-bold font-serif text-jewel-green mb-4">Professional Experience</h1>
     </div>
 
     <!-- Experience Items -->
     <div class="space-y-6">
       {#each experiences as exp}
-        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+        <div class="bg-parchment-dark/60 border border-jewel-green/10 rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300">
           <!-- Header (Always Visible) -->
           <button
             on:click={() => toggleExpand(exp.id)}
-            class="w-full px-6 py-5 flex items-center justify-between hover:bg-gray-50 transition-colors duration-200 black-dot-cursor"
+            class="w-full px-6 py-5 flex items-center justify-between hover:bg-parchment-dark transition-colors duration-200 black-dot-cursor"
           >
             <div class="text-left flex-1">
-              <h3 class="text-xl font-semibold text-gray-900">
-                {exp.title} @ {exp.company}
+              <h3 class="text-xl font-bold font-serif text-ink tracking-wide">
+                {exp.title} <span class="text-jewel-green-light">@</span> <span class="text-jewel-green">{exp.company}</span>
               </h3>
-              <p class="text-sm text-gray-500 mt-1">{exp.location}</p>
+              <p class="text-sm font-medium text-ink/60 mt-1">{exp.location}</p>
             </div>
             <div class="flex items-center gap-4">
-              <span class="text-gray-600 text-sm">{exp.period}</span>
+              <span class="text-ink/60 font-medium text-sm">{exp.period}</span>
               <svg 
-                class="w-5 h-5 text-gray-600 transition-transform duration-300"
+                class="w-5 h-5 text-ink/60 transition-transform duration-300"
                 class:rotate-180={expandedId === exp.id}
                 fill="none" 
                 stroke="currentColor" 
@@ -87,14 +87,14 @@
 
           <!-- Expanded Content -->
           {#if expandedId === exp.id}
-            <div class="px-6 pb-6 pt-2 border-t border-gray-100">
+            <div class="px-6 pb-6 pt-2 border-t border-jewel-green/10">
               <!-- Website Link -->
               {#if exp.website}
                 <a 
                   href="https://{exp.website}" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center gap-2 text-blue-500 hover:text-blue-700 text-sm mb-4 black-dot-cursor"
+                  class="inline-flex items-center gap-2 text-jewel-sapphire hover:text-jewel-sapphire/80 text-sm font-medium mb-4 black-dot-cursor transition-colors duration-200"
                 >
                   <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd"/>
@@ -104,14 +104,14 @@
               {/if}
 
               <!-- Description -->
-              <p class="text-gray-600 text-base leading-relaxed mb-6">
+              <p class="text-ink/80 text-base font-medium leading-relaxed mb-6">
                 {exp.description}
               </p>
 
               <!-- Technologies -->
               <div class="flex flex-wrap gap-2">
                 {#each exp.technologies as tech}
-                  <span class="inline-block bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded">
+                  <span class="inline-block bg-jewel-sapphire/10 text-jewel-sapphire border border-jewel-sapphire/20 font-medium text-xs px-3 py-1 rounded-full">
                     {tech}
                   </span>
                 {/each}
