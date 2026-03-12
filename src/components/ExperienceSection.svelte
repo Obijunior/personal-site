@@ -53,20 +53,24 @@
   <div class="max-w-7xl mx-auto">
     <!-- Section Title -->
     <div class="text-center mb-12">
-      <h1 class="text-4xl font-bold font-serif text-jewel-green mb-4">Professional Experience</h1>
+      <h2 class="text-4xl font-bold font-serif text-jewel-green mb-4">Professional Experience</h2>
     </div>
 
     <!-- Experience Items -->
-    <div class="space-y-6">
-      {#each experiences as exp}
-        <div class="bg-parchment-dark/60 border border-jewel-green/10 rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300">
-          <!-- Header (Always Visible) -->
+    {#if experiences.length === 0}
+      <p class="text-center text-ink/80">No experience entries yet—coming soon.</p>
+    {:else}
+      <div class="space-y-6">
+        {#each experiences as exp}
+          <div class="bg-parchment-dark/60 border border-jewel-green/10 rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300">          <!-- Header (Always Visible) -->
           <button
             on:click={() => toggleExpand(exp.id)}
-            class="w-full px-6 py-5 flex items-center justify-between hover:bg-parchment-dark transition-colors duration-200 black-dot-cursor"
+            aria-expanded={expandedId === exp.id}
+            aria-controls={"exp-details-" + exp.id}
+            class="w-full px-6 py-5 flex items-center justify-between hover:bg-parchment-dark transition-colors duration-200"
           >
             <div class="text-left flex-1">
-              <h3 class="text-xl font-bold font-serif text-ink tracking-wide">
+              <h3 class="text-xl font-bold font-serif text-ink tracking-wide flow-break">
                 {exp.title} <span class="text-jewel-green-light">@</span> <span class="text-jewel-green">{exp.company}</span>
               </h3>
               <p class="text-sm font-medium text-ink/60 mt-1">{exp.location}</p>
@@ -87,14 +91,14 @@
 
           <!-- Expanded Content -->
           {#if expandedId === exp.id}
-            <div class="px-6 pb-6 pt-2 border-t border-jewel-green/10">
+            <div id={"exp-details-" + exp.id} class="px-6 pb-6 pt-2 border-t border-jewel-green/10">
               <!-- Website Link -->
               {#if exp.website}
                 <a 
                   href="https://{exp.website}" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center gap-2 text-jewel-sapphire hover:text-jewel-sapphire/80 text-sm font-medium mb-4 black-dot-cursor transition-colors duration-200"
+                  class="inline-flex items-center gap-2 text-jewel-sapphire hover:text-jewel-sapphire/80 text-sm font-medium mb-4 transition-colors duration-200"
                 >
                   <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd"/>
@@ -104,7 +108,7 @@
               {/if}
 
               <!-- Description -->
-              <p class="text-ink/80 text-base font-medium leading-relaxed mb-6">
+              <p class="text-ink/80 text-base font-medium leading-relaxed mb-6 flow-break">
                 {exp.description}
               </p>
 
@@ -121,11 +125,17 @@
         </div>
       {/each}
     </div>
+  {/if}
   </div>
 </section>
 
 <style>
   .rotate-180 {
-    transform: rotate(0deg);
+    transform: rotate(180deg);
+  }
+  .flow-break {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
   }
 </style>

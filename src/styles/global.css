@@ -146,11 +146,6 @@ html {
   --color-jewel-sapphire: #1E3A8A;
   --color-ink: #111a15;
 
-  --cursor-black: url(/cursors/black-cursor.svg), auto;
-  --cursor-blue: url(/cursors/blue-cursor.svg), auto;
-  --cursor-white: url(/cursors/white-cursor.svg), auto;
-  --cursor-black-dot: url(/cursors/black-dot-cursor.svg), auto;
-
   --font-jetbrains:
     'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
   --font-serif:
@@ -177,33 +172,9 @@ html {
 }
 
 /* for the black dot cursor that appears over clickables */
-.custom-cursor {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 16px;
-  height: 16px;
-  background-color: black;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-
-  transform: translate3d(var(--x, -100px), var(--y, -100px), 0) scale(0);
-  opacity: 0;
-  transition: transform 0.1s ease-out, opacity 0.1s ease-out;
-}
-
-.custom-cursor.expanded {
-  transform: translate3d(var(--x, 0px), var(--y, 0px), 0) scale(1);
-  opacity: 1;
-}
-
-.black-dot-cursor {
-  cursor: none !important;
-}
-
 .highlight {
   background-color: rgba(255, 255, 0, 0.4);
   padding: 0 2px;
   border-radius: 2px;
 }
+

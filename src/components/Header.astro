@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css"
-import { ModeWatcher } from "mode-watcher";
 import DarkMode from '../components/DarkMode.svelte';
 
 const navLinks = [
@@ -33,27 +32,22 @@ const navLinks = [
   }
 </script>
 
-<nav
-    class="fixed hidden md:flex top-0 left-0 w-full bg-jewel-green/95 dark:bg-ink/95 backdrop-blur-md z-1000 border-b border-jewel-green-light/20 font-sans">
-    <div class="w-full px-8 py-4 relative">
+<nav class="fixed flex flex-col md:flex-row top-0 left-0 w-full bg-jewel-green/95 dark:bg-ink/95 backdrop-blur-md z-1000 border-b border-jewel-green-light/20 font-sans">
+    <div class="w-full px-6 py-3 md:px-8 md:py-4 flex items-center justify-between">
         <p class="font-bold font-serif text-parchment text-xl tracking-wide">Henry Nwagwu</p>
-        <nav class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
-            <ul class="flex justify-center gap-24 w-fit mx-auto black-dot-cursor">
-                {navLinks.map((link) => (
-                    <li class="list-none">
-                        <a 
-                            href={link.href} 
-                            class="relative no-underline font-medium text-parchment/80 transition-all duration-300 hover:text-parchment hover:-translate-y-0.5 inline-block py-2 black-dot-cursor"
-                        >
-                            {link.name}
-                        </a>
-                    </li>
-                ))}
-            </ul>
-        </nav>
-        <!-- <div class="absolute right-8 top-1/2 -translate-y-1/2">
-            <ModeWatcher client:load />
-            <DarkMode client:load />
-        </div> -->
     </div>
-  </nav>
+    <div id="site-nav" class="w-full md:flex md:items-center md:justify-center">
+        <ul class="flex flex-wrap justify-center gap-6 md:gap-24 px-4 pb-4 md:px-0 md:pb-0">
+            {navLinks.map((link) => (
+                <li class="list-none">
+                    <a
+                        href={link.href}
+                        class="relative no-underline font-medium text-parchment/80 transition-all duration-300 hover:text-parchment hover:-translate-y-0.5 inline-block py-2"
+                    >
+                        {link.name}
+                    </a>
+                </li>
+            ))}
+        </ul>
+    </div>
+</nav>

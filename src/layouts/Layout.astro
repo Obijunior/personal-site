@@ -1,6 +1,5 @@
 ---
 import '../styles/global.css';
-import BlackDotCursor from '../components/BlackDotCursor.astro';
 
 const title = "Henry Nwagwu | Portfolio"
 ---
@@ -17,11 +16,10 @@ const title = "Henry Nwagwu | Portfolio"
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="cursor-white bg-parchment text-ink font-sans selection:bg-jewel-green/20 selection:text-jewel-green">
+	<body class="cursor-default bg-parchment text-ink font-sans selection:bg-jewel-green/20 selection:text-jewel-green">
 
 
 	<slot />
-	<BlackDotCursor />
 	</body>
 </html>
 

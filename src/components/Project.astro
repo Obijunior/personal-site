@@ -11,11 +11,11 @@ interface Props {
 const { title, description, thumbnail, technologies, hostedLink, link = '#' } = Astro.props;
 ---
 
-<div class="bg-parchment-dark/60 border border-jewel-green/10 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col h-full">
+<div class="bg-parchment-dark/60 border border-jewel-green/10 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col h-full min-w-0 break-words">
   <!-- Thumbnail -->
   {thumbnail ? (
     <div class="w-full overflow-hidden bg-gray-200 flex-shrink-0 aspect-video">
-      <img src={thumbnail} alt={title} class="w-full h-full object-cover" />
+      <img src={thumbnail} alt={title} class="w-full h-full object-cover" loading="lazy" decoding="async" />
     </div>
   ) : (
     <div class="px-6 pt-6">
@@ -26,7 +26,7 @@ const { title, description, thumbnail, technologies, hostedLink, link = '#' } = 
   <!-- Content -->
   <div class="p-6 flex flex-col flex-grow">
     {hostedLink ? (
-      <a href={hostedLink} target='_blank' class="inline-block text-ink hover:text-jewel-green transition-colors duration-200 black-dot-cursor">
+      <a href={hostedLink} target='_blank' rel="noopener noreferrer" class="inline-block text-ink hover:text-jewel-green transition-colors duration-200">
         <h3 class="text-2xl font-bold font-serif mb-3 tracking-wide">{title}</h3>
       </a>
     ) : (
@@ -44,7 +44,7 @@ const { title, description, thumbnail, technologies, hostedLink, link = '#' } = 
     </div>
     
     <!-- Link -->
-    <a href={link} class="inline-block text-jewel-green-light hover:text-jewel-green font-medium text-sm tracking-wide uppercase mt-auto black-dot-cursor transition-colors duration-200">
+    <a href={link} class="inline-block text-jewel-green-light hover:text-jewel-green font-medium text-sm tracking-wide uppercase mt-auto transition-colors duration-200">
       View Project →
     </a>
   </div>
