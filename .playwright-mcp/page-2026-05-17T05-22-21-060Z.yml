@@ -1,0 +1,128 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]: henry.nwagwu.me
+    - list [ref=e4]:
+      - listitem [ref=e5]:
+        - link "Work" [ref=e6] [cursor=pointer]:
+          - /url: "#projects"
+      - listitem [ref=e7]:
+        - link "About" [ref=e8] [cursor=pointer]:
+          - /url: "#experience"
+      - listitem [ref=e9]:
+        - link "Contact" [ref=e10] [cursor=pointer]:
+          - /url: mailto:o.henry.nwagwu@gmail.com
+    - generic [ref=e11]: available · fall 2027
+  - main [ref=e13]:
+    - generic [ref=e14]:
+      - generic [ref=e15]: // software engineer · security · web3
+      - generic [ref=e16]:
+        - text: HENRY
+        - text: NWAGWU
+      - generic [ref=e17]:
+        - text: CS + Mathematics at
+        - emphasis [ref=e18]: University of Kansas
+        - text: . Building at the intersection of systems programming, blockchain, and offensive security.
+      - generic [ref=e19]:
+        - generic [ref=e20]: Security+
+        - generic [ref=e21]: GFACT
+        - generic [ref=e22]: VICEROY Scholar
+        - generic [ref=e23]: KU '28
+      - generic [ref=e24]:
+        - link "↗ GitHub" [ref=e25] [cursor=pointer]:
+          - /url: https://github.com/obijunior
+        - link "↗ LinkedIn" [ref=e26] [cursor=pointer]:
+          - /url: https://linkedin.com/in/o-henry-nwagwu
+        - link "↗ Resume" [ref=e27] [cursor=pointer]:
+          - /url: /resume.pdf
+        - link "↗ Email" [ref=e28] [cursor=pointer]:
+          - /url: mailto:o.henry.nwagwu@gmail.com
+      - generic [ref=e29]:
+        - generic [ref=e30]: "03"
+        - generic [ref=e31]: projects shipped
+    - generic [ref=e32]:
+      - generic [ref=e33]:
+        - generic [ref=e34]: Selected work
+        - generic [ref=e36]: 2024–2025
+      - generic [ref=e37]:
+        - generic [ref=e38] [cursor=pointer]:
+          - generic [ref=e41]: "// Echidna — kernel rootkit agent // VICEROY research · not public yet typedef struct _DKOM_ENTRY { LIST_ENTRY ActiveLinks; ULONG UniqueProcessId; PVOID Token; } PROC_ENTRY; NTSTATUS HideProcess(ULONG pid) { PEPROCESS proc = FindProcessById(pid); // unlink from PsActiveProcessHead RemoveEntryList(&proc->ActiveLinks); return STATUS_SUCCESS; }"
+          - generic [ref=e42]:
+            - generic [ref=e43]: 001 / security
+            - generic [ref=e44]: ECHIDNA
+            - generic [ref=e45]: Ring-0 Windows kernel rootkit integrating with the Mythic C2 framework. Implements DKOM, DLL hijacking, and eBPF-based persistence mechanisms for adversarial red-team simulation. Built as a funded VICEROY research project.
+            - generic [ref=e46]:
+              - generic [ref=e47]: C
+              - generic [ref=e48]: Windows Kernel
+              - generic [ref=e49]: Mythic C2
+              - generic [ref=e50]: DKOM
+              - generic [ref=e51]: eBPF
+            - generic [ref=e52]: ★ $6,500 VICEROY Scholarship · 7th/50 national CTF
+        - generic [ref=e53] [cursor=pointer]:
+          - generic [ref=e55]:
+            - text: TERRANOVA
+            - text: XRP LEDGER ────��────
+            - text: ◆ RWA tokenized
+            - text: ◆ Trade executed
+            - text: "◆ Settlement: 3.4s"
+            - text: Best Business Analysis ★
+          - generic [ref=e56]: 002 / web3
+          - generic [ref=e57]: TERRANOVA
+          - generic [ref=e58]: On-chain commodity trading platform enabling tokenization of real-world assets on the XRP Ledger.
+          - generic [ref=e59]:
+            - generic [ref=e60]: Next.js
+            - generic [ref=e61]: XRPL
+            - generic [ref=e62]: Solidity
+            - generic [ref=e63]: TailwindCSS
+          - generic [ref=e64]: ★ Best Business Analysis · Best Use of XRPL
+          - link "live →" [ref=e65]:
+            - /url: https://kubi-cohort-2025.vercel.app/
+        - generic [ref=e66] [cursor=pointer]:
+          - generic [ref=e68]: TWL
+          - generic [ref=e69]: 003 / research
+          - generic [ref=e70]: TRADE WAR LAB
+          - generic [ref=e71]: U.S.–China trade policy simulation platform. Dynamic modeling of tariff impacts using TIES framework data.
+          - generic [ref=e72]:
+            - generic [ref=e73]: Next.js
+            - generic [ref=e74]: Supabase
+            - generic [ref=e75]: TypeScript
+            - generic [ref=e76]: R
+          - link "live →" [ref=e77]:
+            - /url: https://tradewarlab.com
+    - generic [ref=e78]:
+      - generic [ref=e80]: Currently
+      - generic [ref=e82]:
+        - generic [ref=e83]:
+          - generic [ref=e84]: Building
+          - generic [ref=e85]: Trade War Lab v1 launch
+        - generic [ref=e86]:
+          - generic [ref=e87]: Studying
+          - generic [ref=e88]: ML · Systems Security · Modern Algebra
+        - generic [ref=e89]:
+          - generic [ref=e90]: Targeting
+          - generic [ref=e91]: NYC · Chicago · SF · Fall 2026 recruiting
+    - generic [ref=e93]:
+      - generic [ref=e94]:
+        - generic [ref=e95]: Experience
+        - generic [ref=e97]: 3 roles
+      - generic [ref=e98]:
+        - button "the Trade War Lab Research Assistant 10/2025 - Present" [ref=e99] [cursor=pointer]:
+          - generic [ref=e100]:
+            - generic [ref=e101]:
+              - generic [ref=e102]: the Trade War Lab
+              - generic [ref=e103]: Research Assistant
+            - generic [ref=e104]: 10/2025 - Present
+        - button "University of Kansas IT Student IT Technician 05/2025-11/2025" [ref=e105] [cursor=pointer]:
+          - generic [ref=e106]:
+            - generic [ref=e107]:
+              - generic [ref=e108]: University of Kansas IT
+              - generic [ref=e109]: Student IT Technician
+            - generic [ref=e110]: 05/2025-11/2025
+        - button "Sardius Media Software Engineering Intern 09/2023 - 05/2024" [ref=e111] [cursor=pointer]:
+          - generic [ref=e112]:
+            - generic [ref=e113]:
+              - generic [ref=e114]: Sardius Media
+              - generic [ref=e115]: Software Engineering Intern
+            - generic [ref=e116]: 09/2023 - 05/2024
+  - contentinfo [ref=e117]:
+    - generic [ref=e118]: © 2025 Henry Nwagwu
+    - generic [ref=e119]: Built with Astro · Deployed on Cloudflare

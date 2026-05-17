@@ -1,53 +1,38 @@
 ---
-import "../styles/global.css"
-import DarkMode from '../components/DarkMode.svelte';
-
 const navLinks = [
-  { name: 'Me', href: '#intro' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Experience', href: '#experience' }
+  { name: 'Work', href: '#projects' },
+  { name: 'About', href: '#experience' },
+  { name: 'Contact', href: 'mailto:o.henry.nwagwu@gmail.com' }
 ];
 ---
-<script is:inline>
-  const isBrowser = typeof localStorage !== 'undefined';
-  const getThemePreference = () => {
-    if (isBrowser && localStorage.getItem('theme')) {
-      return localStorage.getItem('theme');
-    }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? 'dark' : 'light';
-  };
-  const isDark = getThemePreference() === 'dark';
-  document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
- 
-  if (isBrowser) {
-    const observer = new MutationObserver(() => {
-      const isDark = document.documentElement.classList.contains('dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    });
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class']
-    });
-  }
-</script>
 
-<nav class="fixed flex flex-col md:flex-row top-0 left-0 w-full bg-jewel-green/95 dark:bg-ink/95 backdrop-blur-md z-1000 border-b border-jewel-green-light/20 font-sans">
-    <div class="w-full px-6 py-3 md:px-8 md:py-4 flex items-center justify-between">
-        <p class="font-bold font-serif text-parchment text-xl tracking-wide">Henry Nwagwu</p>
-    </div>
-    <div id="site-nav" class="w-full md:flex md:items-center md:justify-center">
-        <ul class="flex flex-wrap justify-center gap-6 md:gap-24 px-4 pb-4 md:px-0 md:pb-0">
-            {navLinks.map((link) => (
-                <li class="list-none">
-                    <a
-                        href={link.href}
-                        class="relative no-underline font-medium text-parchment/80 transition-all duration-300 hover:text-parchment hover:-translate-y-0.5 inline-block py-2"
-                    >
-                        {link.name}
-                    </a>
-                </li>
-            ))}
-        </ul>
-    </div>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:20px 40px;border-bottom:1px solid #1e1e1e;position:sticky;top:0;background:rgba(12,12,12,0.92);backdrop-filter:blur(8px);z-index:50;">
+  <div style="font-family:var(--mono);font-size:13px;font-weight:400;color:var(--fg2);letter-spacing:0.02em;">
+    henry<span style="color:var(--accent);">.</span>nwagwu<span style="color:var(--accent);">.me</span>
+  </div>
+
+  <ul style="display:flex;gap:32px;list-style:none;">
+    {navLinks.map((link) => (
+      <li>
+        <a
+          href={link.href}
+          style="font-family:var(--mono);font-size:11px;font-weight:400;color:var(--fg3);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;"
+          class="nav-link"
+        >
+          {link.name}
+        </a>
+      </li>
+    ))}
+  </ul>
+
+  <div style="font-family:var(--mono);font-size:11px;color:var(--fg3);display:flex;align-items:center;gap:6px;">
+    <span style="width:6px;height:6px;border-radius:50%;background:#4a9e6e;animation:pulse 2.5s ease-in-out infinite;display:inline-block;"></span>
+    available · fall 2027
+  </div>
 </nav>
+
+<style>
+  .nav-link:hover {
+    color: var(--fg) !important;
+  }
+</style>

@@ -1,99 +1,288 @@
 ---
-import styles from '../styles/global.css';
-import Project from './Project.astro';
-
 interface ProjectData {
   title: string;
   description: string;
-  thumbnail?: string;
   technologies: string[];
   hostedLink?: string;
   link?: string;
+  index: string;
+  category: string;
+  award?: string;
+  featured?: boolean;
+  visual?: 'echidna' | 'terranova' | 'generic';
 }
 
 const projects: ProjectData[] = [
   {
-    title: 'TerraNova',
-    description: 'On-chain commodity trading platform that lets users explore markets for real world assets and transact through the XRP Ledger. Won Best Business Analysis and Best Use of XRPL as a cohort capstone project',
-    // thumbnail: '/images/TerraNovaPics/terraNovaHomepage.png',
-    technologies: ['Next.js', 'TailwindCSS', 'XRPL', 'Blockchain'],
+    title: 'ECHIDNA',
+    description: 'Ring-0 Windows kernel rootkit integrating with the Mythic C2 framework. Implements DKOM, DLL hijacking, and eBPF-based persistence mechanisms for adversarial red-team simulation. Built as a funded VICEROY research project.',
+    technologies: ['C', 'Windows Kernel', 'Mythic C2', 'DKOM', 'eBPF'],
+    link: 'https://github.com/JamesNKing/echidna',
+    index: '001',
+    category: 'security',
+    award: '$6,500 VICEROY Scholarship · 7th/50 national CTF',
+    featured: true,
+    visual: 'echidna',
+  },
+  {
+    title: 'TERRANOVA',
+    description: 'On-chain commodity trading platform enabling tokenization of real-world assets on the XRP Ledger.',
+    technologies: ['Next.js', 'XRPL', 'Solidity', 'TailwindCSS'],
     hostedLink: 'https://kubi-cohort-2025.vercel.app/',
     link: 'https://github.com/Obijunior/kubi-cohort-2025',
+    index: '002',
+    category: 'web3',
+    award: 'Best Business Analysis · Best Use of XRPL',
+    visual: 'terranova',
   },
   {
-    title: 'Echidna',
-    description: 'Helped develop 3 different types of rootkit (LKM, DLH, eBPF) for the Mythic C2 framework as part of a VICEROY research project. Not public yet :(',
-    // thumbnail: '/images/mythic-c2.jpg',
-    technologies: ['C', 'Mythic C2', 'Cybersecurity'],
-    link: 'https://github.com/JamesNKing/echidna',
-  },
-  {
-    title: 'ZillowNFT',
-    description: 'A web3 proof of concept for buying and selling home deeds using NFTs in place of the traditional home escrow process. Won best beginner project at a hack-a-thon',
-    // thumbnail: '/images/ZillowNFT.png',
-    technologies: ['Next.js', 'TailwindCSS', 'Solidity'],
-    link: 'https://github.com/FarrellJoswara/Block-a-Thon/tree/main',
-  },
-  {
-    title: 'This Website!',
-    description: 'My personal portfolio website built with Astro and Svelte.',
-    technologies: ['Astro', 'Svelte', 'TailwindCSS'],
-    hostedLink: 'https://henrynwagwu.me/',
-    link: 'https://github.com/Obijunior/personal-site',
-  },
-  {
-    title: 'Campus Shield',
-    description: 'Onchain emergency fund for university students, powered by USDC on Base',
-    technologies: ['Next.js', 'TailwindCSS', 'Solidity', 'Ethereum', 'Base'],
-    hostedLink: 'https://mbc-2025.vercel.app/',
-    link: 'https://github.com/Obijunior/mbc-2025',
-  },
-  {
-    title: 'Portfolio Allocator',
-    description: 'A research-focused toolkit for building and backtesting portfolio allocation strategies on a small ETF universe',
-    technologies: ['Finance', 'Machine Learning', 'Python', 'Pandas', 'NumPy', 'Matplotlib', 'Scikit-learn'],
-    link: 'https://github.com/Obijunior/portfolio-allocator',
-  },
-  {
-    title: 'Black-Scholes Option Pricing',
-    description: 'A Python implementation of the Black-Scholes option pricing model',
-    technologies: ['Finance', 'Python', 'NumPy', 'Pandas'],
-    link: 'https://github.com/Obijunior/black-scholes-implementation',
-  },
-  {
-    title: 'VBRCC',
-    description: 'A very basic C compiler and assembler written in Rust.',
-    technologies: ['Rust', 'Assembly', 'Compilers', 'C'],
-    link: 'https://github.com/Obijunior/vbrcc',
-  },
-  {
-    title: 'Fossl',
-    description: 'Web-based MVP for managing digital wills tied to blockchain wallet addresses, through smart contracts. 3rd place in Ripple track at a hack-a-thon',
-    technologies: ['XRPL', 'Typescript', 'Gemini API', 'Pinata/IPFS', 'Solidity'],
-    link: 'https://github.com/FarrellJoswara/MidwestBlockathon2026',
+    title: 'TRADE WAR LAB',
+    description: 'U.S.–China trade policy simulation platform. Dynamic modeling of tariff impacts using TIES framework data.',
+    technologies: ['Next.js', 'Supabase', 'TypeScript', 'R'],
+    hostedLink: 'https://tradewarlab.com',
+    index: '003',
+    category: 'research',
+    visual: 'generic',
   },
 ];
 ---
 
-<div id="projects" class="w-full px-4 mb-24 font-sans">
-  <div class="text-center mb-16">
-    <h2 class="text-4xl font-bold font-serif text-jewel-green mb-4">Projects</h2>
+<section id="projects" style="padding:60px 40px;border-bottom:1px solid #1a1a1a;">
+  <div class="section-header">
+    <span class="section-title">Selected work</span>
+    <div class="section-line"></div>
+    <span class="section-count">2024–2025</span>
   </div>
 
-  {projects.length === 0 ?
-    <p class="text-center text-ink/80">No projects to display yet. Check back soon.</p>
-    :
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 items-stretch auto-rows-fr max-w-7xl mx-auto pb-12">
-      {projects.map((project) => (
-        <Project
-          title={project.title}
-          description={project.description}
-          thumbnail={project.thumbnail}
-          technologies={project.technologies}
-          hostedLink={project.hostedLink}
-          link={project.link}
-        />
-      ))}
-    </div>
+  <div class="projects-grid">
+    {projects.map((project) => {
+      if (project.featured) {
+        return (
+          <div class="project-card featured">
+            <div class="project-visual featured-vis">
+              <div class="vis-echidna">
+                <pre set:html={`<span class="hl">// Echidna — kernel rootkit agent</span>\n<span class="dim2">// VICEROY research · not public yet</span>\n\n<span class="hl">typedef</span> struct _DKOM_ENTRY {\n  LIST_ENTRY  ActiveLinks;\n  ULONG       UniqueProcessId;\n  PVOID       Token;\n} PROC_ENTRY;\n\n<span class="hl">NTSTATUS</span> HideProcess(ULONG pid) {\n  PEPROCESS proc = <span class="hl">FindProcessById</span>(pid);\n  <span class="dim2">// unlink from PsActiveProcessHead</span>\n  RemoveEntryList(&amp;proc-&gt;ActiveLinks);\n  <span class="hl">return</span> STATUS_SUCCESS;\n}`} />
+              </div>
+            </div>
+            <div>
+              <div class="project-index">{project.index} / {project.category}</div>
+              <div class="project-name">{project.title}</div>
+              <div class="project-desc">{project.description}</div>
+              <div class="project-stack">
+                {project.technologies.map((tech) => (
+                  <span class="stack-tag">{tech}</span>
+                ))}
+              </div>
+              {project.award && <div class="project-award">{project.award}</div>}
+            </div>
+          </div>
+        )
+      }
+
+      return (
+        <div class="project-card">
+          <div class="project-visual">
+            {project.visual === 'terranova' ? (
+              <div class="vis-terranova" set:html={`<span class="hl">TERRANOVA</span><br/><span style="color:#4a3a20">XRP LEDGER ────��────</span><br/><span style="color:#3a2a10">◆ RWA tokenized</span><br/><span style="color:#3a2a10">◆ Trade executed</span><br/><span class="hl">◆ Settlement: 3.4s</span><br/><span style="color:#4a3a20">Best Business Analysis ★</span>`} />
+            ) : (
+              <div class="vis-generic">TWL</div>
+            )}
+          </div>
+          <div class="project-index">{project.index} / {project.category}</div>
+          <div class="project-name">{project.title}</div>
+          <div class="project-desc">{project.description}</div>
+          <div class="project-stack">
+            {project.technologies.map((tech) => (
+              <span class="stack-tag">{tech}</span>
+            ))}
+          </div>
+          {project.award && <div class="project-award">{project.award}</div>}
+          {(project.hostedLink || project.link) && (
+            <a href={project.hostedLink || project.link} target="_blank" rel="noopener noreferrer" class="project-link">
+              {project.hostedLink ? 'live →' : 'view →'}
+            </a>
+          )}
+        </div>
+      )
+    })}
+  </div>
+</section>
+
+<style>
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 40px;
   }
-</div>
+  .section-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--fg3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: #1e1e1e;
+  }
+  .section-count {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--fg3);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: #1a1a1a;
+  }
+
+  .project-card {
+    background: var(--bg);
+    padding: 32px;
+    cursor: pointer;
+    transition: background 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-card:hover {
+    background: var(--bg2);
+  }
+  .project-card.featured {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .project-visual {
+    background: var(--bg3);
+    border: 1px solid #1e1e1e;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .featured-vis {
+    height: 100%;
+    min-height: 200px;
+    margin-bottom: 0;
+  }
+
+  .vis-echidna {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: #2a4a2a;
+    line-height: 1.6;
+    padding: 16px;
+    text-align: left;
+    width: 100%;
+    overflow: hidden;
+  }
+  .vis-echidna :global(.hl) {
+    color: #4a9e6e;
+  }
+  .vis-echidna :global(.dim2) {
+    color: #1e3a1e;
+  }
+
+  .vis-terranova {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: #3a3020;
+    line-height: 1.8;
+    padding: 16px;
+    text-align: left;
+    width: 100%;
+  }
+  .vis-terranova :global(.hl) {
+    color: var(--accent);
+  }
+
+  .vis-generic {
+    font-family: var(--display);
+    font-size: 36px;
+    color: #1e1e1e;
+    letter-spacing: 0.04em;
+  }
+
+  .project-index {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--fg3);
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+  .project-name {
+    font-family: var(--display);
+    font-size: 28px;
+    letter-spacing: 0.04em;
+    color: var(--fg);
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+  .project-desc {
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--fg2);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .project-stack {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  .stack-tag {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--fg3);
+    border: 1px solid #222;
+    padding: 2px 7px;
+    letter-spacing: 0.04em;
+  }
+
+  .project-award {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+  }
+  .project-award::before {
+    content: '★ ';
+  }
+
+  .project-link {
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--fg3);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    transition: color 0.2s;
+  }
+  .project-card:hover .project-link {
+    color: var(--accent);
+  }
+
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+    .project-card.featured {
+      grid-column: span 1;
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

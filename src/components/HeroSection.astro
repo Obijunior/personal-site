@@ -1,45 +1,146 @@
 ---
-import { Github, Linkedin, Mail, Twitter } from '@lucide/astro';
 ---
 
-<div id="intro" class="text-center font-sans mb-10 min-h-[70vh] flex flex-col justify-center items-center space-y-2">
-    <h1 class="text-5xl font-bold font-serif text-jewel-green mb-4">Henry Nwagwu</h1>
-    <p class="text-lg text-ink/90 font-medium tracking-wide mb-8">Computer Science + Economics @ KU</p>
-    
-    <div class="flex items-center justify-center space-x-6 mt-4">
-        <a
-            href="https://github.com/obijunior"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            class="text-ink/80 hover:text-black transition-colors duration-300"
-        >
-            <Github class="w-7 h-7" />
-        </a>
-        <a
-            href="https://linkedin.com/in/o-henry-nwagwu"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            class="text-ink/80 hover:text-black transition-colors duration-300"
-        >
-            <Linkedin class="w-7 h-7" />
-        </a>
-        <a
-            href="https://twitter.com/henry_nwagwu_"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Twitter"
-            class="text-ink/80 hover:text-black transition-colors duration-300"
-        >
-            <Twitter class="w-7 h-7" />
-        </a>
-        <a
-            href="mailto:o.henry.nwagwu@gmail.com"
-            aria-label="Email Me"
-            class="text-ink/60 hover:text-black transition-colors duration-300"
-        >
-            <Mail class="w-7 h-7" />
-        </a>
-    </div>
-</div>
+<section style="display:block;padding:80px 40px 60px;position:relative;border-bottom:1px solid #1a1a1a;">
+  <div class="hero-label">// software engineer · security · web3</div>
+
+  <div class="hero-name">HENRY<br><span class="hero-name-dim">NWAGWU</span></div>
+
+  <div class="hero-bio">
+    CS + Mathematics at <em class="hero-bio-em">University of Kansas</em>. Building at the intersection of systems programming, blockchain, and offensive security.
+  </div>
+
+  <div class="hero-tags">
+    <span class="tag active">Security+</span>
+    <span class="tag active">GFACT</span>
+    <span class="tag">VICEROY Scholar</span>
+    <span class="tag">KU '28</span>
+  </div>
+
+  <div class="hero-links">
+    <a href="https://github.com/obijunior" target="_blank" rel="noopener noreferrer" class="hero-link">GitHub</a>
+    <a href="https://linkedin.com/in/o-henry-nwagwu" target="_blank" rel="noopener noreferrer" class="hero-link">LinkedIn</a>
+    <a href="/resume.pdf" class="hero-link">Resume</a>
+    <a href="mailto:o.henry.nwagwu@gmail.com" class="hero-link">Email</a>
+  </div>
+
+  <div class="hero-counter">
+    <div class="counter-num">03</div>
+    <div class="counter-label">projects shipped</div>
+  </div>
+</section>
+
+<style>
+  .hero-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--fg3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .hero-name {
+    font-family: var(--display);
+    font-size: clamp(72px, 10vw, 120px);
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    color: var(--fg);
+    margin-bottom: 24px;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-name-dim {
+    color: var(--fg3);
+  }
+
+  .hero-bio {
+    font-family: var(--body);
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--fg2);
+    max-width: 420px;
+    line-height: 1.7;
+    margin-bottom: 36px;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  .hero-bio-em {
+    color: var(--accent);
+    font-style: normal;
+  }
+
+  .hero-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border: 1px solid #222;
+    color: var(--fg3);
+    text-transform: uppercase;
+  }
+
+  .tag.active {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 20px;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  .hero-link {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--fg3);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .hero-link::before {
+    content: '↗';
+    font-size: 10px;
+  }
+
+  .hero-link:hover {
+    color: var(--accent);
+  }
+
+  .hero-counter {
+    position: absolute;
+    right: 40px;
+    top: 80px;
+    text-align: right;
+  }
+
+  .counter-num {
+    font-family: var(--display);
+    font-size: 120px;
+    line-height: 1;
+    color: #181818;
+    user-select: none;
+  }
+
+  .counter-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--fg3);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: -8px;
+  }
+</style>

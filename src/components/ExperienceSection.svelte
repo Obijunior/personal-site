@@ -42,100 +42,167 @@
     }
   ];
 
-  let expandedId: string | null = null;
+  let expandedId: string | null = $state(null);
 
   function toggleExpand(id: string) {
     expandedId = expandedId === id ? null : id;
   }
 </script>
 
-<section id="experience" class="w-full px-4 font-sans mt-12 mb-16">
-  <div class="max-w-7xl mx-auto">
-    <!-- Section Title -->
-    <div class="text-center mb-12">
-      <h2 class="text-4xl font-bold font-serif text-jewel-green mb-4">Professional Experience</h2>
-    </div>
+<section id="experience" class="experience-section">
+  <div class="section-header">
+    <span class="section-title">Experience</span>
+    <div class="section-line"></div>
+    <span class="section-count">{experiences.length} roles</span>
+  </div>
 
-    <!-- Experience Items -->
-    {#if experiences.length === 0}
-      <p class="text-center text-ink/80">No experience entries yet—coming soon.</p>
-    {:else}
-      <div class="space-y-6">
-        {#each experiences as exp}
-          <div class="bg-parchment-dark/60 border border-jewel-green/10 rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300">          <!-- Header (Always Visible) -->
-          <button
-            on:click={() => toggleExpand(exp.id)}
-            aria-expanded={expandedId === exp.id}
-            aria-controls={"exp-details-" + exp.id}
-            class="w-full px-6 py-5 flex items-center justify-between hover:bg-parchment-dark transition-colors duration-200"
-          >
-            <div class="text-left flex-1">
-              <h3 class="text-xl font-bold font-serif text-ink tracking-wide flow-break">
-                {exp.title} <span class="text-jewel-green-light">@</span> <span class="text-jewel-green">{exp.company}</span>
-              </h3>
-              <p class="text-sm font-medium text-ink/60 mt-1">{exp.location}</p>
-            </div>
-            <div class="flex items-center gap-4">
-              <span class="text-ink/60 font-medium text-sm">{exp.period}</span>
-              <svg 
-                class="w-5 h-5 text-ink/60 transition-transform duration-300"
-                class:rotate-180={expandedId === exp.id}
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </div>
-          </button>
-
-          <!-- Expanded Content -->
-          {#if expandedId === exp.id}
-            <div id={"exp-details-" + exp.id} class="px-6 pb-6 pt-2 border-t border-jewel-green/10">
-              <!-- Website Link -->
-              {#if exp.website}
-                <a 
-                  href="https://{exp.website}" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center gap-2 text-jewel-sapphire hover:text-jewel-sapphire/80 text-sm font-medium mb-4 transition-colors duration-200"
-                >
-                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd"/>
-                  </svg>
-                  {exp.website}
-                </a>
-              {/if}
-
-              <!-- Description -->
-              <p class="text-ink/80 text-base font-medium leading-relaxed mb-6 flow-break">
-                {exp.description}
-              </p>
-
-              <!-- Technologies -->
-              <div class="flex flex-wrap gap-2">
-                {#each exp.technologies as tech}
-                  <span class="inline-block bg-jewel-sapphire/10 text-jewel-sapphire border border-jewel-sapphire/20 font-medium text-xs px-3 py-1 rounded-full">
-                    {tech}
-                  </span>
-                {/each}
-              </div>
-            </div>
-          {/if}
+  <div class="experience-list">
+    {#each experiences as exp}
+      <button
+        onclick={() => toggleExpand(exp.id)}
+        aria-expanded={expandedId === exp.id}
+        class="experience-item"
+      >
+        <div class="exp-row">
+          <div class="exp-left">
+            <span class="exp-company">{exp.company}</span>
+            <span class="exp-role">{exp.title}</span>
+          </div>
+          <span class="exp-period">{exp.period}</span>
         </div>
-      {/each}
-    </div>
-  {/if}
+
+        {#if expandedId === exp.id}
+          <div class="exp-details">
+            <p class="exp-description">{exp.description}</p>
+            <div class="exp-techs">
+              {#each exp.technologies as tech}
+                <span class="exp-tech">{tech}</span>
+              {/each}
+            </div>
+          </div>
+        {/if}
+      </button>
+    {/each}
   </div>
 </section>
 
 <style>
-  .rotate-180 {
-    transform: rotate(180deg);
+  .experience-section {
+    padding: 60px 40px;
+    border-bottom: 1px solid #1a1a1a;
   }
-  .flow-break {
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    hyphens: auto;
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .section-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--fg3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: #1e1e1e;
+  }
+  .section-count {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--fg3);
+  }
+
+  .experience-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .experience-item {
+    display: block;
+    width: 100%;
+    padding: 20px 0;
+    border-bottom: 1px solid #1e1e1e;
+    background: none;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.2s;
+  }
+  .experience-item:first-child {
+    border-top: 1px solid #1e1e1e;
+  }
+  .experience-item:hover {
+    background: var(--bg2);
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .exp-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .exp-left {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+  }
+
+  .exp-company {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--fg);
+  }
+
+  .exp-role {
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--fg2);
+  }
+
+  .exp-period {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--fg3);
+    white-space: nowrap;
+  }
+
+  .exp-details {
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid #1a1a1a;
+  }
+
+  .exp-description {
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--fg2);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .exp-techs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .exp-tech {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--fg3);
+    border: 1px solid #222;
+    padding: 2px 7px;
+    letter-spacing: 0.04em;
   }
 </style>
