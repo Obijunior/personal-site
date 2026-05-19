@@ -1,49 +1,52 @@
 ---
 interface ProjectData {
-  title: string;
-  description: string;
-  technologies: string[];
-  hostedLink?: string;
-  link?: string;
-  index: string;
-  category: string;
-  award?: string;
-  featured?: boolean;
-  visual?: 'echidna' | 'terranova' | 'generic';
+	title: string;
+	description: string;
+	technologies: string[];
+	hostedLink?: string;
+	link?: string;
+	index: string;
+	category: string;
+	award?: string;
+	featured?: boolean;
+	visual?: "echidna" | "terranova" | "generic";
 }
 
 const projects: ProjectData[] = [
-  {
-    title: 'ECHIDNA',
-    description: 'Ring-0 Windows kernel rootkit integrating with the Mythic C2 framework. Implements DKOM, DLL hijacking, and eBPF-based persistence mechanisms for adversarial red-team simulation. Built as a funded VICEROY research project.',
-    technologies: ['C', 'Windows Kernel', 'Mythic C2', 'DKOM', 'eBPF'],
-    link: 'https://github.com/JamesNKing/echidna',
-    index: '001',
-    category: 'security',
-    award: '$6,500 VICEROY Scholarship · 7th/50 national CTF',
-    featured: true,
-    visual: 'echidna',
-  },
-  {
-    title: 'TERRANOVA',
-    description: 'On-chain commodity trading platform enabling tokenization of real-world assets on the XRP Ledger.',
-    technologies: ['Next.js', 'XRPL', 'Solidity', 'TailwindCSS'],
-    hostedLink: 'https://kubi-cohort-2025.vercel.app/',
-    link: 'https://github.com/Obijunior/kubi-cohort-2025',
-    index: '002',
-    category: 'web3',
-    award: 'Best Business Analysis · Best Use of XRPL',
-    visual: 'terranova',
-  },
-  {
-    title: 'TRADE WAR LAB',
-    description: 'U.S.–China trade policy simulation platform. Dynamic modeling of tariff impacts using TIES framework data.',
-    technologies: ['Next.js', 'Supabase', 'TypeScript', 'R'],
-    hostedLink: 'https://tradewarlab.com',
-    index: '003',
-    category: 'research',
-    visual: 'generic',
-  },
+	{
+		title: "ECHIDNA",
+		description:
+			"Ring-0 Windows kernel rootkit integrating with the Mythic C2 framework. Implements DKOM, DLL hijacking, and eBPF-based persistence mechanisms for adversarial red-team simulation. Built as a funded VICEROY research project.",
+		technologies: ["C", "Windows Kernel", "Mythic C2", "DKOM", "eBPF"],
+		link: "https://github.com/JamesNKing/echidna",
+		index: "001",
+		category: "security",
+		award: "$6,500 VICEROY Scholarship · 7th/50 national CTF",
+		featured: true,
+		visual: "echidna",
+	},
+	{
+		title: "TERRANOVA",
+		description:
+			"On-chain commodity trading platform enabling tokenization of real-world assets on the XRP Ledger.",
+		technologies: ["Next.js", "XRPL", "Solidity", "TailwindCSS"],
+		hostedLink: "https://kubi-cohort-2025.vercel.app/",
+		link: "https://github.com/Obijunior/kubi-cohort-2025",
+		index: "002",
+		category: "web3",
+		award: "Best Business Analysis · Best Use of XRPL",
+		visual: "terranova",
+	},
+	{
+		title: "TRADE WAR LAB",
+		description:
+			"U.S.–China trade policy simulation platform. Dynamic modeling of tariff impacts using TIES framework data.",
+		technologies: ["Next.js", "Supabase", "TypeScript", "R"],
+		hostedLink: "https://tradewarlab.com",
+		index: "003",
+		category: "research",
+		visual: "generic",
+	},
 ];
 ---
 

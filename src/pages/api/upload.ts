@@ -13,7 +13,7 @@ export const POST: APIRoute = async ({ request }) => {
 		);
 	}
 	const { cid } = await pinata.upload.public.file(file);
-	const url = await pinata.gateways.public.convert(cid)
+	const url = await pinata.gateways.public.convert(cid);
 	return new Response(
 		JSON.stringify({
 			data: url,

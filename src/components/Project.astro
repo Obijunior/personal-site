@@ -1,14 +1,21 @@
 ---
 interface Props {
-  title: string;
-  description: string;
-  thumbnail?: string;
-  technologies: string[];
-  hostedLink?: string;
-  link?: string;
+	title: string;
+	description: string;
+	thumbnail?: string;
+	technologies: string[];
+	hostedLink?: string;
+	link?: string;
 }
 
-const { title, description, thumbnail, technologies, hostedLink, link = '#' } = Astro.props;
+const {
+	title,
+	description,
+	thumbnail,
+	technologies,
+	hostedLink,
+	link = "#",
+} = Astro.props;
 ---
 
 <div class="bg-parchment-dark/60 border border-jewel-green/10 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col h-full min-w-0 break-words">

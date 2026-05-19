@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
 html {
-  scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
 :root {
-  --bg: #0c0c0c;
-  --bg2: #111111;
-  --bg3: #181818;
-  --fg: #e8e4dc;
-  --fg2: #888070;
-  --fg3: #4a4640;
-  --accent: #c8a96e;
-  --accent2: #7b9ea8;
-  --mono: 'IBM Plex Mono', monospace;
-  --display: 'Bebas Neue', sans-serif;
-  --body: 'DM Sans', sans-serif;
+	--bg: #0c0c0c;
+	--bg2: #111111;
+	--bg3: #181818;
+	--fg: #e8e4dc;
+	--fg2: #888070;
+	--fg3: #4a4640;
+	--accent: #c8a96e;
+	--accent2: #7b9ea8;
+	--mono: "IBM Plex Mono", monospace;
+	--display: "Bebas Neue", sans-serif;
+	--body: "DM Sans", sans-serif;
 }
 
 @theme {
@@ -34,27 +34,38 @@ html {
 }
 
 @layer base {
-  body {
-    background: var(--bg);
-    color: var(--fg);
-    font-family: var(--body);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
+	body {
+		background: var(--bg);
+		color: var(--fg);
+		font-family: var(--body);
+		min-height: 100vh;
+		overflow-x: hidden;
+	}
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.3;
+	}
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
+	from {
+		opacity: 0;
+		transform: translateY(16px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }

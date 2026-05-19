@@ -1,52 +1,55 @@
 <script lang="ts">
-  interface Experience {
-    id: string;
-    title: string;
-    company: string;
-    period: string;
-    location: string;
-    website?: string;
-    description: string;
-    technologies: string[];
-  }
+interface Experience {
+	id: string;
+	title: string;
+	company: string;
+	period: string;
+	location: string;
+	website?: string;
+	description: string;
+	technologies: string[];
+}
 
-  const experiences: Experience[] = [
-    {
-      id: 'twl',
-      title: 'Research Assistant',
-      company: 'the Trade War Lab',
-      period: '10/2025 - Present',
-      location: 'Lawrence, KS',
-      website: 'tradewarlab.com',
-      description: 'Conducted qualitative analysis of trade policy impacts using the TIES framework and academic literature. Performed data entry, dataset preparation, and trained in R for statistical analysis. Contributed to U.S.-China Trade War research through dynamic simulation modeling and helped develop the online simulation platform using React and C#.',
-      technologies: ['R', 'C#', 'React', 'Qualitative Analysis'],
-    },
-    {
-      id: 'kuit',
-      title: 'Student IT Technician',
-      company: 'University of Kansas IT',
-      period: '05/2025-11/2025',
-      location: 'Lawrence, KS',
-      description: 'Provided technical support across multiple channels (phone, email, chat, in-person), maintaining FERPA compliance and security standards. Created and tracked detailed service tickets to ensure efficient incident resolution and accountability.',
-      technologies: ['Customer Service', 'Ticketing systems', 'Troubleshooting'],
-    },
-    {
-      id: 'sardius',
-      title: 'Software Engineering Intern',
-      company: 'Sardius Media',
-      period: '09/2023 - 05/2024',
-      location: 'Kansas City, MO',
-      website: 'sardius.media',
-      description: 'Learned and implemented React, and contributed to brainstorming and planning sessions. Learned about general software engineering practices like version control and the Agile methodology.',
-      technologies: ['Software Engineering', 'React'],
-    }
-  ];
+const experiences: Experience[] = [
+	{
+		id: "twl",
+		title: "Research Assistant",
+		company: "the Trade War Lab",
+		period: "10/2025 - Present",
+		location: "Lawrence, KS",
+		website: "tradewarlab.com",
+		description:
+			"Conducted qualitative analysis of trade policy impacts using the TIES framework and academic literature. Performed data entry, dataset preparation, and trained in R for statistical analysis. Contributed to U.S.-China Trade War research through dynamic simulation modeling and helped develop the online simulation platform using React and C#.",
+		technologies: ["R", "C#", "React", "Qualitative Analysis"],
+	},
+	{
+		id: "kuit",
+		title: "Student IT Technician",
+		company: "University of Kansas IT",
+		period: "05/2025-11/2025",
+		location: "Lawrence, KS",
+		description:
+			"Provided technical support across multiple channels (phone, email, chat, in-person), maintaining FERPA compliance and security standards. Created and tracked detailed service tickets to ensure efficient incident resolution and accountability.",
+		technologies: ["Customer Service", "Ticketing systems", "Troubleshooting"],
+	},
+	{
+		id: "sardius",
+		title: "Software Engineering Intern",
+		company: "Sardius Media",
+		period: "09/2023 - 05/2024",
+		location: "Kansas City, MO",
+		website: "sardius.media",
+		description:
+			"Learned and implemented React, and contributed to brainstorming and planning sessions. Learned about general software engineering practices like version control and the Agile methodology.",
+		technologies: ["Software Engineering", "React"],
+	},
+];
 
-  let expandedId: string | null = $state(null);
+let expandedId: string | null = $state(null);
 
-  function toggleExpand(id: string) {
-    expandedId = expandedId === id ? null : id;
-  }
+function toggleExpand(id: string) {
+	expandedId = expandedId === id ? null : id;
+}
 </script>
 
 <section id="experience" class="experience-section">
