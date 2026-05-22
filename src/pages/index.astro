@@ -1,27 +1,24 @@
 ---
-import Layout from '../layouts/Layout.astro'
+import CurrentlySection from "../components/CurrentlySection.astro";
+import EducationSection from "../components/EducationSection.astro";
+import ExperienceSection from "../components/ExperienceSection.svelte";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import HeroSection from "../components/HeroSection.astro";
+import ProjectsSection from "../components/ProjectsSection.astro";
+import Layout from "../layouts/Layout.astro";
 
-import HeroSection from '../components/HeroSection.astro'
-import Header from '../components/Header.astro'
-
-import ProjectsSection from '../components/ProjectsSection.astro'
-import ExperienceSection from '../components/ExperienceSection.svelte'
-import EducationSection from '../components/EducationSection.astro'
-
-import "../styles/global.css"
+import "../styles/global.css";
 ---
 
 <Layout>
-    <main
-        class="min-h-screen flex flex-col items-center justify-start bg-parchment">
-        <Header />
+    <Header />
+    <main>
         <HeroSection />
-        <EducationSection />
-        <ExperienceSection client:load />
-        <br>
-        <br>
         <ProjectsSection />
+        <CurrentlySection />
+        <ExperienceSection client:load />
+        <EducationSection />
     </main>
+    <Footer />
 </Layout>
-
-

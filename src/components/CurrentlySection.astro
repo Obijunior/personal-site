@@ -1,0 +1,89 @@
+---
+const currently = [
+	{ label: "Building", value: "Trade War Lab - Simulation ", accent: "v1 launch" },
+	{
+		label: "Studying",
+		value: "ML · Systems Security · ",
+		accent: "Modern Algebra",
+    // suffix: " blah blah blah",
+	},
+];
+---
+
+<section style="padding:40px;border-bottom:1px solid #1a1a1a;">
+  <div class="section-header">
+    <span class="section-title">Currently</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="currently-grid">
+    {currently.map((item) => (
+      <div class="currently-item">
+        <div class="currently-label">{item.label}</div>
+        <div class="currently-val">
+          {item.value}<span class="currently-accent">{item.accent}</span>{item.suffix || ''}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .section-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--fg3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: #1e1e1e;
+  }
+
+  .currently-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: #1a1a1a;
+  }
+
+  .currently-item {
+    background: var(--bg);
+    padding: 24px 28px;
+  }
+
+  .currently-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--fg3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .currently-val {
+    font-family: var(--body);
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--fg);
+    line-height: 1.4;
+  }
+
+  .currently-accent {
+    color: var(--accent2);
+  }
+
+  @media (max-width: 768px) {
+    .currently-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

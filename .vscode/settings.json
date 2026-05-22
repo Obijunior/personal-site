@@ -1,5 +1,5 @@
 {
-    "postman.settings.dotenv-detection-notification-visibility": false,
-    "svg.preview.background": "editor",
-    "css.lint.unknownAtRules": "ignore"
+	"postman.settings.dotenv-detection-notification-visibility": false,
+	"svg.preview.background": "editor",
+	"css.lint.unknownAtRules": "ignore"
 }

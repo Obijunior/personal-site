@@ -1,11 +1,11 @@
-import { vitePreprocess } from '@astrojs/svelte';
+import { vitePreprocess } from "@astrojs/svelte";
 
 export default {
-    preprocess: vitePreprocess(),
-    compilerOptions: {
-        dev: true,
-        experimental: {
-            async: true
-        }
-    }
+	preprocess: vitePreprocess(),
+	compilerOptions: {
+		dev: true,
+		experimental: {
+			async: true,
+		},
+	},
 };

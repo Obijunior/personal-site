@@ -1,99 +1,263 @@
 ---
-import styles from '../styles/global.css';
-import Project from './Project.astro';
-
-interface ProjectData {
-  title: string;
-  description: string;
-  thumbnail?: string;
-  technologies: string[];
-  hostedLink?: string;
-  link?: string;
-}
-
-const projects: ProjectData[] = [
-  {
-    title: 'TerraNova',
-    description: 'On-chain commodity trading platform that lets users explore markets for real world assets and transact through the XRP Ledger. Won Best Business Analysis and Best Use of XRPL as a cohort capstone project',
-    // thumbnail: '/images/TerraNovaPics/terraNovaHomepage.png',
-    technologies: ['Next.js', 'TailwindCSS', 'XRPL', 'Blockchain'],
-    hostedLink: 'https://kubi-cohort-2025.vercel.app/',
-    link: 'https://github.com/Obijunior/kubi-cohort-2025',
-  },
-  {
-    title: 'Echidna',
-    description: 'Helped develop 3 different types of rootkit (LKM, DLH, eBPF) for the Mythic C2 framework as part of a VICEROY research project. Not public yet :(',
-    // thumbnail: '/images/mythic-c2.jpg',
-    technologies: ['C', 'Mythic C2', 'Cybersecurity'],
-    link: 'https://github.com/JamesNKing/echidna',
-  },
-  {
-    title: 'ZillowNFT',
-    description: 'A web3 proof of concept for buying and selling home deeds using NFTs in place of the traditional home escrow process. Won best beginner project at a hack-a-thon',
-    // thumbnail: '/images/ZillowNFT.png',
-    technologies: ['Next.js', 'TailwindCSS', 'Solidity'],
-    link: 'https://github.com/FarrellJoswara/Block-a-Thon/tree/main',
-  },
-  {
-    title: 'This Website!',
-    description: 'My personal portfolio website built with Astro and Svelte.',
-    technologies: ['Astro', 'Svelte', 'TailwindCSS'],
-    hostedLink: 'https://henrynwagwu.me/',
-    link: 'https://github.com/Obijunior/personal-site',
-  },
-  {
-    title: 'Campus Shield',
-    description: 'Onchain emergency fund for university students, powered by USDC on Base',
-    technologies: ['Next.js', 'TailwindCSS', 'Solidity', 'Ethereum', 'Base'],
-    hostedLink: 'https://mbc-2025.vercel.app/',
-    link: 'https://github.com/Obijunior/mbc-2025',
-  },
-  {
-    title: 'Portfolio Allocator',
-    description: 'A research-focused toolkit for building and backtesting portfolio allocation strategies on a small ETF universe',
-    technologies: ['Finance', 'Machine Learning', 'Python', 'Pandas', 'NumPy', 'Matplotlib', 'Scikit-learn'],
-    link: 'https://github.com/Obijunior/portfolio-allocator',
-  },
-  {
-    title: 'Black-Scholes Option Pricing',
-    description: 'A Python implementation of the Black-Scholes option pricing model',
-    technologies: ['Finance', 'Python', 'NumPy', 'Pandas'],
-    link: 'https://github.com/Obijunior/black-scholes-implementation',
-  },
-  {
-    title: 'VBRCC',
-    description: 'A very basic C compiler and assembler written in Rust.',
-    technologies: ['Rust', 'Assembly', 'Compilers', 'C'],
-    link: 'https://github.com/Obijunior/vbrcc',
-  },
-  {
-    title: 'Fossl',
-    description: 'Web-based MVP for managing digital wills tied to blockchain wallet addresses, through smart contracts. 3rd place in Ripple track at a hack-a-thon',
-    technologies: ['XRPL', 'Typescript', 'Gemini API', 'Pinata/IPFS', 'Solidity'],
-    link: 'https://github.com/FarrellJoswara/MidwestBlockathon2026',
-  },
-];
+import { projects } from "../data";
 ---
 
-<div id="projects" class="w-full px-4 mb-24 font-sans">
-  <div class="text-center mb-16">
-    <h2 class="text-4xl font-bold font-serif text-jewel-green mb-4">Projects</h2>
+<section id="projects" style="padding:60px 40px;border-bottom:1px solid #1a1a1a;">
+  <div class="section-header">
+    <span class="section-title">Selected work</span>
+    <div class="section-line"></div>
+    <!-- <span class="section-count">2024–2025</span> -->
   </div>
 
-  {projects.length === 0 ?
-    <p class="text-center text-ink/80">No projects to display yet. Check back soon.</p>
-    :
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 items-stretch auto-rows-fr max-w-7xl mx-auto pb-12">
-      {projects.map((project) => (
-        <Project
-          title={project.title}
-          description={project.description}
-          thumbnail={project.thumbnail}
-          technologies={project.technologies}
-          hostedLink={project.hostedLink}
-          link={project.link}
-        />
-      ))}
-    </div>
+  <div class="projects-grid">
+    {projects.map((project) => {
+      if (project.featured) {
+        return (
+          <div class="project-card featured">
+            <div class="project-visual featured-vis">
+              {project.visual === 'image' && project.visualImage ? (
+                <img src={project.visualImage} alt={project.title} class="vis-image" />
+              ) : project.visual === 'code' ? (
+                <div class="vis-code">
+                  <pre set:html={project.visualContent} />
+                </div>
+              ) : project.visual === 'text' ? (
+                <div class="vis-text" set:html={project.visualContent} />
+              ) : (
+                <div class="vis-label">{project.visualContent || project.title}</div>
+              )}
+            </div>
+            <div>
+              <div class="project-index">{project.index} / {project.category}</div>
+              <div class="project-name">{project.title}</div>
+              <div class="project-desc">{project.description}</div>
+              <div class="project-stack">
+                {project.technologies.map((tech) => (
+                  <span class="stack-tag">{tech}</span>
+                ))}
+              </div>
+              {project.award && <div class="project-award">{project.award}</div>}
+            </div>
+          </div>
+        )
+      }
+
+      return (
+        <div class="project-card">
+          <div class="project-visual">
+            {project.visual === 'image' && project.visualImage ? (
+              <img src={project.visualImage} alt={project.title} class="vis-image" />
+            ) : project.visual === 'code' ? (
+              <div class="vis-code">
+                <pre set:html={project.visualContent} />
+              </div>
+            ) : project.visual === 'text' ? (
+              <div class="vis-text" set:html={project.visualContent} />
+            ) : (
+              <div class="vis-label">{project.visualContent || project.title}</div>
+            )}
+          </div>
+          <div class="project-index">{project.index} / {project.category}</div>
+          <div class="project-name">{project.title}</div>
+          <div class="project-desc">{project.description}</div>
+          <div class="project-stack">
+            {project.technologies.map((tech) => (
+              <span class="stack-tag">{tech}</span>
+            ))}
+          </div>
+          {project.award && <div class="project-award">{project.award}</div>}
+          {(project.hostedLink || project.link) && (
+            <a href={project.hostedLink || project.link} target="_blank" rel="noopener noreferrer" class="project-link">
+              view →
+            </a>
+          )}
+        </div>
+      )
+    })}
+  </div>
+</section>
+
+<style>
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 40px;
   }
-</div>
+  .section-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--fg3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: #1e1e1e;
+  }
+  .section-count {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--fg3);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: #1a1a1a;
+  }
+
+  .project-card {
+    background: var(--bg);
+    padding: 32px;
+    cursor: pointer;
+    transition: background 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-card:hover {
+    background: var(--bg2);
+  }
+  .project-card.featured {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .project-visual {
+    background: var(--bg3);
+    border: 1px solid #1e1e1e;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .featured-vis {
+    height: 100%;
+    min-height: 200px;
+    margin-bottom: 0;
+  }
+
+  .vis-code {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: #5a8a5a;
+    line-height: 1.6;
+    padding: 16px;
+    text-align: left;
+    width: 100%;
+    overflow: hidden;
+  }
+  .vis-code :global(.hl) {
+    color: #6ec28e;
+  }
+  .vis-code :global(.dim2) {
+    color: #3d6e3d;
+  }
+
+  .vis-text {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: #7a6a4a;
+    line-height: 1.8;
+    padding: 16px;
+    text-align: left;
+    width: 100%;
+  }
+  .vis-text :global(.hl) {
+    color: var(--accent);
+  }
+
+  .vis-label {
+    font-family: var(--display);
+    font-size: 36px;
+    color: #1e1e1e;
+    letter-spacing: 0.04em;
+  }
+
+  .vis-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .project-index {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--fg3);
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+  .project-name {
+    font-family: var(--display);
+    font-size: 28px;
+    letter-spacing: 0.04em;
+    color: var(--fg);
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+  .project-desc {
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--fg2);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .project-stack {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  .stack-tag {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--fg3);
+    border: 1px solid #222;
+    padding: 2px 7px;
+    letter-spacing: 0.04em;
+  }
+
+  .project-award {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+  }
+  .project-award::before {
+    content: '★ ';
+  }
+
+  .project-link {
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--fg3);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    transition: color 0.2s;
+  }
+  .project-card:hover .project-link {
+    color: var(--accent);
+  }
+
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+    .project-card.featured {
+      grid-column: span 1;
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
