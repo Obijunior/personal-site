@@ -8,7 +8,9 @@ export interface ProjectData {
 	category: string;
 	award?: string;
 	featured?: boolean;
-	visual?: "echidna" | "terranova" | "generic";
+	visual: "code" | "text" | "label" | "image";
+	visualContent?: string;
+	visualImage?: string;
 }
 
 export interface Experience {
@@ -18,8 +20,27 @@ export interface Experience {
 	period: string;
 	location: string;
 	website?: string;
-	description: string;
+	description: string[];
 	technologies: string[];
+}
+
+export interface Education {
+	institution: string;
+	degree: string;
+	period: string;
+	location: string;
+	details?: string[];
+}
+
+export interface Certification {
+	name: string;
+	issuer: string;
+	date?: string;
+}
+
+export interface SkillCategory {
+	category: string;
+	items: string[];
 }
 
 export const projects: ProjectData[] = [
@@ -33,7 +54,22 @@ export const projects: ProjectData[] = [
 		category: "security",
 		award: "$6,500 VICEROY Scholarship · 7th/50 national CTF",
 		featured: true,
-		visual: "echidna",
+		visual: "code",
+		visualContent: `<span class="hl">// Echidna — kernel rootkit agent</span>
+<span class="dim2">// VICEROY research · not public yet</span>
+
+<span class="hl">typedef</span> struct _DKOM_ENTRY {
+  LIST_ENTRY  ActiveLinks;
+  ULONG       UniqueProcessId;
+  PVOID       Token;
+} PROC_ENTRY;
+
+<span class="hl">NTSTATUS</span> HideProcess(ULONG pid) {
+  PEPROCESS proc = <span class="hl">FindProcessById</span>(pid);
+  <span class="dim2">// unlink from PsActiveProcessHead</span>
+  RemoveEntryList(&amp;proc-&gt;ActiveLinks);
+  <span class="hl">return</span> STATUS_SUCCESS;
+}`,
 	},
 	{
 		title: "TERRANOVA",
@@ -45,7 +81,8 @@ export const projects: ProjectData[] = [
 		index: "002",
 		category: "web3",
 		award: "Best Business Analysis · Best Use of XRPL",
-		visual: "terranova",
+		visual: "text",
+		visualContent: `<span class="hl">TERRANOVA</span><br/><span style="color:#4a3a20">XRP LEDGER ─────────</span><br/><span style="color:#3a2a10">◆ RWA tokenized</span><br/><span style="color:#3a2a10">◆ Trade executed</span><br/><span class="hl">◆ Settlement: 3.4s</span><br/><span style="color:#4a3a20">Best Business Analysis ★</span>`,
 	},
 	{
 		title: "TRADE WAR LAB",
@@ -55,31 +92,50 @@ export const projects: ProjectData[] = [
 		hostedLink: "https://tradewarlab.com",
 		index: "003",
 		category: "research",
-		visual: "generic",
+		visual: "label",
+		visualContent: "TWL",
 	},
 ];
 
 export const experiences: Experience[] = [
 	{
+		id: "selectquote",
+		title: "Software Engineering Intern (FinTech)",
+		company: "SelectQuote",
+		period: "05/2026 - 08/2026",
+		location: "Overland Park, KS",
+		description: [
+			"Co-architecting and developing a full-stack internal financial platform using React and Flask to streamline the tracking and recovery of missing capital through the corporate appeals process",
+			"Engineering data processing pipelines utilizing Pandas and NumPy to clean, manipulate, and reconcile complex financial datasets for agent review",
+			"Participated in code reviews, integration testing, and Agile sprints to deploy production-ready software solutions",
+		],
+		technologies: ["React", "Flask", "Pandas", "NumPy"],
+	},
+	{
 		id: "twl",
-		title: "Research Assistant",
+		title: "Research Assistant / Lead Developer",
 		company: "the Trade War Lab",
 		period: "10/2025 - Present",
 		location: "Lawrence, KS",
 		website: "tradewarlab.com",
-		description:
-			"Conducted qualitative analysis of trade policy impacts using the TIES framework and academic literature. Performed data entry, dataset preparation, and trained in R for statistical analysis. Contributed to U.S.-China Trade War research through dynamic simulation modeling and helped develop the online simulation platform using React and C#.",
-		technologies: ["R", "C#", "React", "Qualitative Analysis"],
+		description: [
+			"Architected and developed a web-based trade war simulation platform utilized to model complex U.S.-China macroeconomic negotiation scenarios",
+			"Applied the TIES framework and structured datasets to analyze regional impacts of trade policy",
+			"Conducted statistical analysis and visualization in R to support research outputs",
+		],
+		technologies: ["R", "React", "TypeScript"],
 	},
 	{
 		id: "kuit",
 		title: "Student IT Technician",
 		company: "University of Kansas IT",
-		period: "05/2025-11/2025",
+		period: "05/2025 - 11/2025",
 		location: "Lawrence, KS",
-		description:
-			"Provided technical support across multiple channels (phone, email, chat, in-person), maintaining FERPA compliance and security standards. Created and tracked detailed service tickets to ensure efficient incident resolution and accountability.",
-		technologies: ["Customer Service", "Ticketing systems", "Troubleshooting"],
+		description: [
+			"Processed inbound support requests via phone, email, chat, and in-person, ensuring efficient response and resolution times",
+			"Maintained security and confidentiality standards in compliance with FERPA and departmental policies when handling user data and account access",
+		],
+		technologies: ["Customer Service", "Ticketing Systems", "Troubleshooting"],
 	},
 	{
 		id: "sardius",
@@ -88,8 +144,42 @@ export const experiences: Experience[] = [
 		period: "09/2023 - 05/2024",
 		location: "Kansas City, MO",
 		website: "sardius.media",
-		description:
-			"Learned and implemented React, and contributed to brainstorming and planning sessions. Learned about general software engineering practices like version control and the Agile methodology.",
-		technologies: ["Software Engineering", "React"],
+		description: [
+			"Engineered frontend features and interactive UI components using React and responsive design principles",
+			"Utilized Agile methodologies, including Jira, sprint planning, and team design sessions to optimize user interfaces",
+		],
+		technologies: ["React", "Jira", "Agile"],
+	},
+];
+
+export const education: Education[] = [
+	{
+		institution: "University of Kansas",
+		degree: "B.S. Computer Science, Minor in Math | GPA 3.78/4.00",
+		period: "Expected May 2028",
+		location: "Lawrence, KS",
+		details: [
+			"Digital Logic Design, Embedded Systems, Software Engineering, Discrete Structures, Operating Systems, DSA, Computer Architecture, Machine Learning, Theory of Computing, Modern Algebra, Linear Algebra",
+		],
+	},
+];
+
+export const certifications: Certification[] = [
+	{ name: "CompTIA Security+", issuer: "CompTIA", date: "June 2025" },
+	{ name: "GFACT", issuer: "GIAC / SANS", date: "May 2024" },
+];
+
+export const skills: SkillCategory[] = [
+	{
+		category: "Languages",
+		items: ["Python", "JavaScript/TypeScript", "C/C++", "Rust", "Solidity", "SQL"],
+	},
+	{
+		category: "Frameworks / Libraries",
+		items: ["React", "Next.js", "Astro", "Svelte", "TailwindCSS"],
+	},
+	{
+		category: "Tools",
+		items: ["Git", "Postman", "Docker", "Node", "Linux", "Windows", "SSMS"],
 	},
 ];

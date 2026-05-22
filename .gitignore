@@ -7,6 +7,11 @@ dist/
 #random ./ folders
 .vscode/
 .wrangler/
+.playwright-mcp/
+.claude/
+
+# individual files
+TODO.md
 
 # dependencies
 node_modules/

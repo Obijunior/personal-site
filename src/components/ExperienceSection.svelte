@@ -32,7 +32,11 @@ function toggleExpand(id: string) {
 
         {#if expandedId === exp.id}
           <div class="exp-details">
-            <p class="exp-description">{exp.description}</p>
+            <ul class="exp-bullets">
+              {#each exp.description as bullet}
+                <li class="exp-bullet">{bullet}</li>
+              {/each}
+            </ul>
             <div class="exp-techs">
               {#each exp.technologies as tech}
                 <span class="exp-tech">{tech}</span>
@@ -141,13 +145,28 @@ function toggleExpand(id: string) {
     border-top: 1px solid #1a1a1a;
   }
 
-  .exp-description {
+  .exp-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px 0;
+  }
+
+  .exp-bullet {
     font-family: var(--body);
     font-size: 13px;
     font-weight: 300;
     color: var(--fg2);
     line-height: 1.6;
-    margin-bottom: 12px;
+    padding-left: 16px;
+    position: relative;
+    margin-bottom: 4px;
+  }
+
+  .exp-bullet::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--fg3);
   }
 
   .exp-techs {

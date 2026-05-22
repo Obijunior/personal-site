@@ -6,7 +6,7 @@ import { projects } from "../data";
   <div class="section-header">
     <span class="section-title">Selected work</span>
     <div class="section-line"></div>
-    <span class="section-count">2024–2025</span>
+    <!-- <span class="section-count">2024–2025</span> -->
   </div>
 
   <div class="projects-grid">
@@ -15,9 +15,17 @@ import { projects } from "../data";
         return (
           <div class="project-card featured">
             <div class="project-visual featured-vis">
-              <div class="vis-echidna">
-                <pre set:html={`<span class="hl">// Echidna — kernel rootkit agent</span>\n<span class="dim2">// VICEROY research · not public yet</span>\n\n<span class="hl">typedef</span> struct _DKOM_ENTRY {\n  LIST_ENTRY  ActiveLinks;\n  ULONG       UniqueProcessId;\n  PVOID       Token;\n} PROC_ENTRY;\n\n<span class="hl">NTSTATUS</span> HideProcess(ULONG pid) {\n  PEPROCESS proc = <span class="hl">FindProcessById</span>(pid);\n  <span class="dim2">// unlink from PsActiveProcessHead</span>\n  RemoveEntryList(&amp;proc-&gt;ActiveLinks);\n  <span class="hl">return</span> STATUS_SUCCESS;\n}`} />
-              </div>
+              {project.visual === 'image' && project.visualImage ? (
+                <img src={project.visualImage} alt={project.title} class="vis-image" />
+              ) : project.visual === 'code' ? (
+                <div class="vis-code">
+                  <pre set:html={project.visualContent} />
+                </div>
+              ) : project.visual === 'text' ? (
+                <div class="vis-text" set:html={project.visualContent} />
+              ) : (
+                <div class="vis-label">{project.visualContent || project.title}</div>
+              )}
             </div>
             <div>
               <div class="project-index">{project.index} / {project.category}</div>
@@ -37,10 +45,16 @@ import { projects } from "../data";
       return (
         <div class="project-card">
           <div class="project-visual">
-            {project.visual === 'terranova' ? (
-              <div class="vis-terranova" set:html={`<span class="hl">TERRANOVA</span><br/><span style="color:#4a3a20">XRP LEDGER ────��────</span><br/><span style="color:#3a2a10">◆ RWA tokenized</span><br/><span style="color:#3a2a10">◆ Trade executed</span><br/><span class="hl">◆ Settlement: 3.4s</span><br/><span style="color:#4a3a20">Best Business Analysis ★</span>`} />
+            {project.visual === 'image' && project.visualImage ? (
+              <img src={project.visualImage} alt={project.title} class="vis-image" />
+            ) : project.visual === 'code' ? (
+              <div class="vis-code">
+                <pre set:html={project.visualContent} />
+              </div>
+            ) : project.visual === 'text' ? (
+              <div class="vis-text" set:html={project.visualContent} />
             ) : (
-              <div class="vis-generic">TWL</div>
+              <div class="vis-label">{project.visualContent || project.title}</div>
             )}
           </div>
           <div class="project-index">{project.index} / {project.category}</div>
@@ -130,7 +144,7 @@ import { projects } from "../data";
     margin-bottom: 0;
   }
 
-  .vis-echidna {
+  .vis-code {
     font-family: var(--mono);
     font-size: 9px;
     color: #2a4a2a;
@@ -140,14 +154,14 @@ import { projects } from "../data";
     width: 100%;
     overflow: hidden;
   }
-  .vis-echidna :global(.hl) {
+  .vis-code :global(.hl) {
     color: #4a9e6e;
   }
-  .vis-echidna :global(.dim2) {
+  .vis-code :global(.dim2) {
     color: #1e3a1e;
   }
 
-  .vis-terranova {
+  .vis-text {
     font-family: var(--mono);
     font-size: 10px;
     color: #3a3020;
@@ -156,15 +170,21 @@ import { projects } from "../data";
     text-align: left;
     width: 100%;
   }
-  .vis-terranova :global(.hl) {
+  .vis-text :global(.hl) {
     color: var(--accent);
   }
 
-  .vis-generic {
+  .vis-label {
     font-family: var(--display);
     font-size: 36px;
     color: #1e1e1e;
     letter-spacing: 0.04em;
+  }
+
+  .vis-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .project-index {
