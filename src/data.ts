@@ -102,7 +102,7 @@ export const projects: ProjectData[] = [
 		description:
 			"U.S.–China trade policy simulation platform. Dynamic modeling of tariff impacts using TIES framework data.",
 		technologies: ["Next.js", "Supabase", "TypeScript", "R"],
-		hostedLink: "https://tradewarlab.com",
+		hostedLink: "https://github.com/TradeWarLab/twl-simulation-webapp",
 		index: "003",
 		category: "research",
 		visual: "label",
