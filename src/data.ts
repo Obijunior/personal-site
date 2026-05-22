@@ -47,7 +47,7 @@ export const projects: ProjectData[] = [
 	{
 		title: "ECHIDNA",
 		description:
-			"Ring-3 Linux kernel rootkit integrating with the Mythic C2 framework. Implements LPE, dynamic-library hijacking, file/process/network hiding and persistence mechanisms for adversarial red-team simulation. Built as a funded VICEROY research project.",
+			"Ring-3 Linux kernel rootkit integrating with the Mythic C2 framework. Implements LPE, dynamic-library hijacking, file/process/network hiding and persistence mechanisms for adversarial red-team simulation. Unfortunately not public yet",
 		technologies: ["C", "Linux Kernel", "Mythic C2"],
 		link: "https://github.com/JamesNKing/echidna",
 		index: "001",
@@ -179,7 +179,7 @@ export const education: Education[] = [
 
 export const certifications: Certification[] = [
 	{ name: "CompTIA Security+", issuer: "CompTIA", date: "June 2025" },
-	{ name: "GFACT", issuer: "GIAC / SANS", date: "May 2024" },
+	{ name: "GIAC Foundational Cybersecurity Technologies (GFACT)", issuer: "GIAC", date: "May 2024" },
 ];
 
 export const skills: SkillCategory[] = [
