@@ -85,7 +85,7 @@ export const projects: ProjectData[] = [
 		visualContent: `<span class="hl">TERRANOVA</span><br/><span style="color:#4a3a20">XRP LEDGER ─────────</span><br/><span style="color:#3a2a10">◆ RWA tokenized</span><br/><span style="color:#3a2a10">◆ Trade executed</span><br/><span class="hl">◆ Settlement: 3.4s</span><br/><span style="color:#4a3a20">Best Business Analysis ★</span>`,
 	},
 	{
-		title: "TRADE WAR LAB",
+		title: "TRADE WAR LAB SIMULATION PLATFORM",
 		description:
 			"U.S.–China trade policy simulation platform. Dynamic modeling of tariff impacts using TIES framework data.",
 		technologies: ["Next.js", "Supabase", "TypeScript", "R"],
@@ -123,7 +123,7 @@ export const experiences: Experience[] = [
 			"Applied the TIES framework and structured datasets to analyze regional impacts of trade policy",
 			"Conducted statistical analysis and visualization in R to support research outputs",
 		],
-		technologies: ["R", "React", "TypeScript"],
+		technologies: ["R", "React", "TypeScript", "Supabase"],
 	},
 	{
 		id: "kuit",
