@@ -55,20 +55,20 @@ export const projects: ProjectData[] = [
 		award: "$6,500 VICEROY Scholarship · 7th/50 national CTF",
 		featured: true,
 		visual: "code",
-		visualContent: `<span class="hl">// Echidna — kernel rootkit agent</span>
-<span class="dim2">// VICEROY research · not public yet</span>
+		visualContent: `<span class="hl">#define</span> _GNU_SOURCE
+<span class="dim2">// LD_PRELOAD hook — hides PID from /proc</span>
+<span class="hl">#include</span> &lt;dlfcn.h&gt;
 
-<span class="hl">typedef</span> struct _DKOM_ENTRY {
-  LIST_ENTRY  ActiveLinks;
-  ULONG       UniqueProcessId;
-  PVOID       Token;
-} PROC_ENTRY;
+<span class="hl">typedef</span> struct dirent *(*readdir_t)(DIR *);
+<span class="dim2">static readdir_t orig = NULL;</span>
 
-<span class="hl">NTSTATUS</span> HideProcess(ULONG pid) {
-  PEPROCESS proc = <span class="hl">FindProcessById</span>(pid);
-  <span class="dim2">// unlink from PsActiveProcessHead</span>
-  RemoveEntryList(&amp;proc-&gt;ActiveLinks);
-  <span class="hl">return</span> STATUS_SUCCESS;
+<span class="hl">struct dirent</span> *readdir(DIR *dp) {
+  <span class="dim2">if (!orig) orig = dlsym(RTLD_NEXT, "readdir");</span>
+  struct dirent *e;
+  <span class="hl">while</span> ((e = orig(dp)))
+    <span class="dim2">// filter hidden PIDs from /proc</span>
+    <span class="hl">if</span> (!is_hidden(e-&gt;d_name)) <span class="hl">return</span> e;
+  <span class="hl">return</span> NULL;
 }`,
 	},
 	{
@@ -77,13 +77,26 @@ export const projects: ProjectData[] = [
 			"On-chain commodity trading platform enabling tokenization of real-world assets on the XRP Ledger.",
 		technologies: ["Next.js", "XRPL", "Solidity", "TailwindCSS"],
 		hostedLink: "https://kubi-cohort-2025.vercel.app/",
-		link: "https://github.com/Obijunior/kubi-cohort-2025",
+		link: "https://github.com/Obijunior/TerraNova-KUBICohort2025/",
 		index: "002",
 		category: "web3",
 		award: "Best Business Analysis · Best Use of XRPL",
-		visual: "text",
-		visualContent: `<span class="hl">TERRANOVA</span><br/><span style="color:#4a3a20">XRP LEDGER ─────────</span><br/><span style="color:#3a2a10">◆ RWA tokenized</span><br/><span style="color:#3a2a10">◆ Trade executed</span><br/><span class="hl">◆ Settlement: 3.4s</span><br/><span style="color:#4a3a20">Best Business Analysis ★</span>`,
-	},
+		visual: "code",
+		visualContent: 
+		`<span class="hl">// OfferCreate — XRPL native DEX</span>
+<span class="dim2">// ledger-primitive trading, no smart contracts</span>
+
+<span class="hl">const</span> tx: OfferCreate = {
+  TransactionType: <span class="hl">"OfferCreate"</span>,
+  Account: buyerWallet.address,
+  TakerPays: <span class="hl">xrpToDrops</span>(xrpAmount),
+  <span class="dim2">// 1 XRP = 1,000,000 drops</span>
+  TakerGets: { currency, issuer, value: tokenAmount },
+};
+<span class="dim2">const prepared = await c.autofill(tx);</span>
+<span class="hl">return await</span> submitAndWait(prepared, wallet);
+<span class="dim2">// finality ~3–5s · no mining</span>`,
+ },
 	{
 		title: "TRADE WAR LAB SIMULATION PLATFORM",
 		description:
