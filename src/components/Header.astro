@@ -1,8 +1,9 @@
 ---
 const navLinks = [
-	{ name: "Work", href: "#projects" },
-	{ name: "About", href: "#experience" },
-	{ name: "Contact", href: "mailto:o.henry.nwagwu@gmail.com" },
+	{ name: "Me", href: "#about" },
+	{ name: "Projects", href: "#projects" },
+	{ name: "Experience", href: "#experience" },
+	{ name: "Education", href: "#education" },
 ];
 ---
 
@@ -11,7 +12,7 @@ const navLinks = [
     henrynwagwu<span style="color:var(--accent);">.me</span>
   </div>
 
-  <ul style="display:flex;gap:32px;list-style:none;">
+  <ul style="display:flex;gap:32px;list-style:none;align-items:center;">
     {navLinks.map((link) => (
       <li>
         <a
@@ -23,11 +24,69 @@ const navLinks = [
         </a>
       </li>
     ))}
+    <li class="contact-wrapper">
+      <button
+        class="nav-link contact-btn"
+        style="font-family:var(--mono);font-size:11px;font-weight:400;color:var(--fg3);letter-spacing:0.08em;text-transform:uppercase;background:none;border:none;cursor:pointer;transition:color 0.2s;display:flex;align-items:center;gap:4px;"
+      >
+        Contact
+        <svg width="8" height="8" viewBox="0 0 8 8" fill="none" style="margin-top:1px;">
+          <path d="M1.5 3L4 5.5L6.5 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="contact-dropdown">
+        <a href="mailto:o.henry.nwagwu@gmail.com" class="dropdown-link">Email</a>
+        <a href="https://linkedin.com/in/o-henry-nwagwu" target="_blank" rel="noopener noreferrer" class="dropdown-link">LinkedIn</a>
+      </div>
+    </li>
   </ul>
 </nav>
 
 <style>
   .nav-link:hover {
     color: var(--fg) !important;
+  }
+
+  .contact-wrapper {
+    position: relative;
+  }
+
+  .contact-dropdown {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    background: rgba(18, 18, 18, 0.96);
+    border: 1px solid #222;
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    min-width: 140px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: opacity 0.15s, transform 0.15s, visibility 0.15s;
+  }
+
+  .contact-wrapper:hover .contact-dropdown,
+  .contact-wrapper:focus-within .contact-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .dropdown-link {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--fg3);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 10px 16px;
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .dropdown-link:hover {
+    color: var(--fg);
+    background: rgba(255, 255, 255, 0.04);
   }
 </style>
