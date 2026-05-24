@@ -168,7 +168,7 @@ export const experiences: Experience[] = [
 export const education: Education[] = [
 	{
 		institution: "University of Kansas",
-		degree: "B.S. Computer Science, Minor in Math | GPA 3.78/4.00",
+		degree: "B.S. Computer Science, Minor in Math | GPA 3.72/4.00",
 		period: "Expected May 2028",
 		location: "Lawrence, KS",
 		details: [

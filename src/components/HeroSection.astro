@@ -1,3 +1,8 @@
+---
+const now = new Date();
+const date = now.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: '2-digit' }).replace(/\//g, '.');
+---
+
 <section style="display:block;padding:80px 40px 60px;position:relative;border-bottom:1px solid #1a1a1a;">
   <div class="hero-label">// software engineering · cyber security · web3</div>
 
@@ -20,8 +25,8 @@
   </div>
 
   <div class="hero-counter">
-    <div class="counter-num">03</div>
-    <div class="counter-label">featured builds</div>
+    <div class="counter-num">{date}</div>
+    <div class="counter-label">LAST UPDATED</div>
   </div>
 </section>
 
@@ -132,7 +137,7 @@
 
   .counter-label {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     color: var(--fg3);
     letter-spacing: 0.08em;
     text-transform: uppercase;
