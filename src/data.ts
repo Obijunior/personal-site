@@ -49,11 +49,9 @@ export const projects: ProjectData[] = [
 		description:
 			"Ring-3 Linux kernel rootkit integrating with the Mythic C2 framework. Implements LPE, dynamic-library hijacking, file/process/network hiding and persistence mechanisms for adversarial red-team simulation. Unfortunately not public yet",
 		technologies: ["C", "Linux Kernel", "Mythic C2"],
-		link: "https://github.com/JamesNKing/echidna",
 		index: "001",
 		category: "security",
 		award: "$6,500 VICEROY Scholarship · 7th/50 national CTF",
-		featured: true,
 		visual: "code",
 		visualContent: `<span class="hl">#define</span> _GNU_SOURCE
 <span class="dim2">// LD_PRELOAD hook — hides PID from /proc</span>
@@ -98,12 +96,63 @@ export const projects: ProjectData[] = [
 <span class="dim2">// finality ~3–5s · no mining</span>`,
  },
 	{
+		title: "VBRCC",
+		description:
+			"From-scratch C compiler written in Rust targeting x86-64. Hand-rolled lexer, recursive-descent parser, codegen, and a custom assembler subcrate that encodes Intel mnemonics into raw machine bytes. No LLVM, no parser generators.",
+		technologies: ["Rust", "x86-64", "Compilers"],
+		link: "https://github.com/Obijunior/vbrcc",
+		index: "003",
+		category: "systems",
+		visual: "code",
+		visualContent: `<span class="hl">fn</span> gen_expr(node: &Expr) -> String {
+  <span class="hl">match</span> node {
+    Expr::Int(n) => <span class="hl">format!</span>("mov rax, {n}"),
+    Expr::BinaryOp { op, left, right } => {
+      <span class="dim2">// left → rax → push, right → rax</span>
+      <span class="hl">let</span> l = gen_expr(left);
+      <span class="hl">let</span> r = gen_expr(right);
+      <span class="hl">format!</span>("{l}\\npush rax\\n{r}\\npop rcx")
+    }
+    <span class="dim2">// variables live at [rbp - offset]</span>
+    Expr::Var(name) => <span class="hl">format!</span>(
+      "mov rax, [rbp - {}]", symbols[name]
+    ),
+    _ => <span class="dim2">unimplemented!</span>()
+  }
+}`,
+	},
+	{
+		title: "PORTFOLIO ALLOCATOR",
+		description:
+			"Quantitative portfolio research pipeline. Pulls market data, estimates returns via rolling statistics or ML (Gradient Boosting), builds Ledoit-Wolf covariance matrices, and runs weekly-rebalanced backtests across pluggable allocation strategies.",
+		technologies: ["Python", "scikit-learn", "NumPy", "Pandas"],
+		link: "https://github.com/Obijunior/portfolio-allocator",
+		index: "004",
+		category: "quant",
+		visual: "code",
+		visualContent: `<span class="dim2"># mean-variance: maximize Sharpe ratio</span>
+<span class="hl">def</span> allocate(mu, cov):
+  n = <span class="hl">len</span>(mu)
+  <span class="dim2"># long-only, weights sum to 1</span>
+  bounds = [(0, MAX_POS)] * n
+  cons = {"type": "eq", "fun": <span class="hl">lambda</span> w: w.sum() - 1}
+
+  <span class="hl">def</span> neg_sharpe(w):
+    ret = w @ mu
+    vol = (w @ cov @ w) ** 0.5
+    <span class="hl">return</span> -ret / vol
+
+  res = <span class="hl">minimize</span>(neg_sharpe, np.ones(n)/n,
+    bounds=bounds, constraints=cons)
+  <span class="hl">return</span> pd.Series(res.x, index=mu.index)`,
+	},
+	{
 		title: "TRADE WAR LAB SIMULATION PLATFORM",
 		description:
 			"U.S.–China trade policy simulation platform. Dynamic modeling of tariff impacts using TIES framework data.",
 		technologies: ["Next.js", "Supabase", "TypeScript", "R"],
 		hostedLink: "https://github.com/TradeWarLab/twl-simulation-webapp",
-		index: "003",
+		index: "005",
 		category: "research",
 		visual: "label",
 		visualContent: "TWL",

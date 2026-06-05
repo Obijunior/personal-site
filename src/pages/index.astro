@@ -1,7 +1,7 @@
 ---
 import CurrentlySection from "../components/CurrentlySection.astro";
 import EducationSection from "../components/EducationSection.astro";
-import ExperienceSection from "../components/ExperienceSection.svelte";
+import ExperienceSection from "../components/ExperienceSection.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import HeroSection from "../components/HeroSection.astro";
@@ -17,7 +17,7 @@ import "../styles/global.css";
         <HeroSection />
         <ProjectsSection />
         <CurrentlySection />
-        <ExperienceSection client:load />
+        <ExperienceSection />
         <EducationSection />
     </main>
     <Footer />

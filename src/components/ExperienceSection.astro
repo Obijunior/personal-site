@@ -1,12 +1,6 @@
-<script lang="ts">
+---
 import { experiences } from "../data";
-
-let expandedId: string | null = $state(null);
-
-function toggleExpand(id: string) {
-	expandedId = expandedId === id ? null : id;
-}
-</script>
+---
 
 <section id="experience" class="experience-section">
   <div class="section-header">
@@ -16,38 +10,44 @@ function toggleExpand(id: string) {
   </div>
 
   <div class="experience-list">
-    {#each experiences as exp}
-      <button
-        onclick={() => toggleExpand(exp.id)}
-        aria-expanded={expandedId === exp.id}
-        class="experience-item"
-      >
-        <div class="exp-row">
+    {experiences.map((exp) => (
+      <details class="experience-item">
+        <summary class="exp-row">
           <div class="exp-left">
             <span class="exp-company">{exp.company}</span>
             <span class="exp-role">{exp.title}</span>
           </div>
           <span class="exp-period">{exp.period}</span>
-        </div>
+        </summary>
 
-        {#if expandedId === exp.id}
-          <div class="exp-details">
-            <ul class="exp-bullets">
-              {#each exp.description as bullet}
-                <li class="exp-bullet">{bullet}</li>
-              {/each}
-            </ul>
-            <div class="exp-techs">
-              {#each exp.technologies as tech}
-                <span class="exp-tech">{tech}</span>
-              {/each}
-            </div>
+        <div class="exp-details">
+          <ul class="exp-bullets">
+            {exp.description.map((bullet) => (
+              <li class="exp-bullet">{bullet}</li>
+            ))}
+          </ul>
+          <div class="exp-techs">
+            {exp.technologies.map((tech) => (
+              <span class="exp-tech">{tech}</span>
+            ))}
           </div>
-        {/if}
-      </button>
-    {/each}
+        </div>
+      </details>
+    ))}
   </div>
 </section>
+
+<script>
+  document.querySelectorAll('.experience-item').forEach((item) => {
+    item.addEventListener('toggle', () => {
+      if (item.open) {
+        document.querySelectorAll('.experience-item').forEach((other) => {
+          if (other !== item) other.removeAttribute('open');
+        });
+      }
+    });
+  });
+</script>
 
 <style>
   .experience-section {
@@ -85,16 +85,8 @@ function toggleExpand(id: string) {
   }
 
   .experience-item {
-    display: block;
-    width: 100%;
-    padding: 20px 0;
     border-bottom: 1px solid #1e1e1e;
-    background: none;
-    border-left: none;
-    border-right: none;
-    border-top: none;
     cursor: pointer;
-    text-align: left;
     transition: background 0.2s;
   }
   .experience-item:first-child {
@@ -102,8 +94,6 @@ function toggleExpand(id: string) {
   }
   .experience-item:hover {
     background: var(--bg2);
-    padding-left: 12px;
-    padding-right: 12px;
   }
 
   .exp-row {
@@ -111,6 +101,15 @@ function toggleExpand(id: string) {
     align-items: baseline;
     justify-content: space-between;
     gap: 16px;
+    padding: 20px 0;
+    list-style: none;
+  }
+  .exp-row::-webkit-details-marker {
+    display: none;
+  }
+  .experience-item:hover .exp-row {
+    padding-left: 12px;
+    padding-right: 12px;
   }
 
   .exp-left {
@@ -140,15 +139,18 @@ function toggleExpand(id: string) {
   }
 
   .exp-details {
-    margin-top: 16px;
-    padding-top: 12px;
+    padding: 0 0 20px 0;
     border-top: 1px solid #1a1a1a;
+  }
+  .experience-item:hover .exp-details {
+    padding-left: 12px;
+    padding-right: 12px;
   }
 
   .exp-bullets {
     list-style: none;
     padding: 0;
-    margin: 0 0 12px 0;
+    margin: 12px 0 12px 0;
   }
 
   .exp-bullet {
