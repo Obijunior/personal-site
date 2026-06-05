@@ -8,9 +8,6 @@ export interface ProjectData {
 	category: string;
 	award?: string;
 	featured?: boolean;
-	visual: "code" | "text" | "label" | "image";
-	visualContent?: string;
-	visualImage?: string;
 }
 
 export interface Experience {
@@ -52,22 +49,6 @@ export const projects: ProjectData[] = [
 		index: "001",
 		category: "security",
 		award: "$6,500 VICEROY Scholarship · 7th/50 national CTF",
-		visual: "code",
-		visualContent: `<span class="hl">#define</span> _GNU_SOURCE
-<span class="dim2">// LD_PRELOAD hook — hides PID from /proc</span>
-<span class="hl">#include</span> &lt;dlfcn.h&gt;
-
-<span class="hl">typedef</span> struct dirent *(*readdir_t)(DIR *);
-<span class="dim2">static readdir_t orig = NULL;</span>
-
-<span class="hl">struct dirent</span> *readdir(DIR *dp) {
-  <span class="dim2">if (!orig) orig = dlsym(RTLD_NEXT, "readdir");</span>
-  struct dirent *e;
-  <span class="hl">while</span> ((e = orig(dp)))
-    <span class="dim2">// filter hidden PIDs from /proc</span>
-    <span class="hl">if</span> (!is_hidden(e-&gt;d_name)) <span class="hl">return</span> e;
-  <span class="hl">return</span> NULL;
-}`,
 	},
 	{
 		title: "TERRANOVA",
@@ -79,22 +60,7 @@ export const projects: ProjectData[] = [
 		index: "002",
 		category: "web3",
 		award: "Best Business Analysis · Best Use of XRPL",
-		visual: "code",
-		visualContent: 
-		`<span class="hl">// OfferCreate — XRPL native DEX</span>
-<span class="dim2">// ledger-primitive trading, no smart contracts</span>
-
-<span class="hl">const</span> tx: OfferCreate = {
-  TransactionType: <span class="hl">"OfferCreate"</span>,
-  Account: buyerWallet.address,
-  TakerPays: <span class="hl">xrpToDrops</span>(xrpAmount),
-  <span class="dim2">// 1 XRP = 1,000,000 drops</span>
-  TakerGets: { currency, issuer, value: tokenAmount },
-};
-<span class="dim2">const prepared = await c.autofill(tx);</span>
-<span class="hl">return await</span> submitAndWait(prepared, wallet);
-<span class="dim2">// finality ~3–5s · no mining</span>`,
- },
+	},
 	{
 		title: "VBRCC",
 		description:
@@ -103,23 +69,6 @@ export const projects: ProjectData[] = [
 		link: "https://github.com/Obijunior/vbrcc",
 		index: "003",
 		category: "systems",
-		visual: "code",
-		visualContent: `<span class="hl">fn</span> gen_expr(node: &Expr) -> String {
-  <span class="hl">match</span> node {
-    Expr::Int(n) => <span class="hl">format!</span>("mov rax, {n}"),
-    Expr::BinaryOp { op, left, right } => {
-      <span class="dim2">// left → rax → push, right → rax</span>
-      <span class="hl">let</span> l = gen_expr(left);
-      <span class="hl">let</span> r = gen_expr(right);
-      <span class="hl">format!</span>("{l}\\npush rax\\n{r}\\npop rcx")
-    }
-    <span class="dim2">// variables live at [rbp - offset]</span>
-    Expr::Var(name) => <span class="hl">format!</span>(
-      "mov rax, [rbp - {}]", symbols[name]
-    ),
-    _ => <span class="dim2">unimplemented!</span>()
-  }
-}`,
 	},
 	{
 		title: "PORTFOLIO ALLOCATOR",
@@ -129,22 +78,6 @@ export const projects: ProjectData[] = [
 		link: "https://github.com/Obijunior/portfolio-allocator",
 		index: "004",
 		category: "quant",
-		visual: "code",
-		visualContent: `<span class="dim2"># mean-variance: maximize Sharpe ratio</span>
-<span class="hl">def</span> allocate(mu, cov):
-  n = <span class="hl">len</span>(mu)
-  <span class="dim2"># long-only, weights sum to 1</span>
-  bounds = [(0, MAX_POS)] * n
-  cons = {"type": "eq", "fun": <span class="hl">lambda</span> w: w.sum() - 1}
-
-  <span class="hl">def</span> neg_sharpe(w):
-    ret = w @ mu
-    vol = (w @ cov @ w) ** 0.5
-    <span class="hl">return</span> -ret / vol
-
-  res = <span class="hl">minimize</span>(neg_sharpe, np.ones(n)/n,
-    bounds=bounds, constraints=cons)
-  <span class="hl">return</span> pd.Series(res.x, index=mu.index)`,
 	},
 	{
 		title: "TRADE WAR LAB SIMULATION PLATFORM",
@@ -154,8 +87,6 @@ export const projects: ProjectData[] = [
 		hostedLink: "https://github.com/TradeWarLab/twl-simulation-webapp",
 		index: "005",
 		category: "research",
-		visual: "label",
-		visualContent: "TWL",
 	},
 ];
 
@@ -171,7 +102,7 @@ export const experiences: Experience[] = [
 			"Engineering data processing pipelines utilizing Pandas and NumPy to clean, manipulate, and reconcile complex financial datasets for agent review",
 			"Participated in code reviews, integration testing, and Agile sprints to deploy production-ready software solutions",
 		],
-		technologies: ["React", "Flask", "Pandas", "NumPy"],
+		technologies: ["Flask", "SQL", "SSMS", "Jira"],
 	},
 	{
 		id: "twl",
@@ -208,9 +139,9 @@ export const experiences: Experience[] = [
 		website: "sardius.media",
 		description: [
 			"Engineered frontend features and interactive UI components using React and responsive design principles",
-			"Utilized Agile methodologies, including Jira, sprint planning, and team design sessions to optimize user interfaces",
+			"Utilized Agile methodologies like sprint planning, and team design sessions to optimize user interfaces",
 		],
-		technologies: ["React", "Jira", "Agile"],
+		technologies: ["React", "Agile"],
 	},
 ];
 
