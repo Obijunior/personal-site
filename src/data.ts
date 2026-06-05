@@ -4,8 +4,8 @@ export interface ProjectData {
 	technologies: string[];
 	hostedLink?: string;
 	link?: string;
-	index: string;
 	category: string;
+	type: "personal" | "hackathon" | "research";
 	award?: string;
 	featured?: boolean;
 }
@@ -46,9 +46,8 @@ export const projects: ProjectData[] = [
 		description:
 			"Ring-3 Linux kernel rootkit integrating with the Mythic C2 framework. Implements LPE, dynamic-library hijacking, file/process/network hiding and persistence mechanisms for adversarial red-team simulation. Unfortunately not public yet",
 		technologies: ["C", "Linux Kernel", "Mythic C2"],
-		index: "001",
 		category: "security",
-		award: "$6,500 VICEROY Scholarship · 7th/50 national CTF",
+		type: "research",
 	},
 	{
 		title: "TERRANOVA",
@@ -57,18 +56,18 @@ export const projects: ProjectData[] = [
 		technologies: ["Next.js", "XRPL", "Solidity", "TailwindCSS"],
 		hostedLink: "https://kubi-cohort-2025.vercel.app/",
 		link: "https://github.com/Obijunior/TerraNova-KUBICohort2025/",
-		index: "002",
 		category: "web3",
+		type: "hackathon",
 		award: "Best Business Analysis · Best Use of XRPL",
 	},
 	{
 		title: "VBRCC",
 		description:
 			"From-scratch C compiler written in Rust targeting x86-64. Hand-rolled lexer, recursive-descent parser, codegen, and a custom assembler subcrate that encodes Intel mnemonics into raw machine bytes. No LLVM, no parser generators.",
-		technologies: ["Rust", "x86-64", "Compilers"],
+		technologies: ["Rust", "x86-64", "Compilers", "C"],
 		link: "https://github.com/Obijunior/vbrcc",
-		index: "003",
 		category: "systems",
+		type: "personal",
 	},
 	{
 		title: "PORTFOLIO ALLOCATOR",
@@ -76,17 +75,17 @@ export const projects: ProjectData[] = [
 			"Quantitative portfolio research pipeline. Pulls market data, estimates returns via rolling statistics or ML (Gradient Boosting), builds Ledoit-Wolf covariance matrices, and runs weekly-rebalanced backtests across pluggable allocation strategies.",
 		technologies: ["Python", "scikit-learn", "NumPy", "Pandas"],
 		link: "https://github.com/Obijunior/portfolio-allocator",
-		index: "004",
-		category: "quant",
+		category: "finance",
+		type: "personal",
 	},
 	{
 		title: "TRADE WAR LAB SIMULATION PLATFORM",
 		description:
 			"U.S.–China trade policy simulation platform. Dynamic modeling of tariff impacts using TIES framework data.",
-		technologies: ["Next.js", "Supabase", "TypeScript", "R"],
+		technologies: ["Next.js", "Supabase", "TypeScript", "Full-Stack Web Development"],
 		hostedLink: "https://github.com/TradeWarLab/twl-simulation-webapp",
-		index: "005",
-		category: "research",
+		category: "economics / political science",
+		type: "research",
 	},
 ];
 

@@ -1,44 +1,62 @@
 ---
 import { projects } from "../data";
-const remainder = projects.length % 3;
-const lastRowSpan = remainder === 0 ? 2 : 6 / remainder;
-const lastRowStart = projects.length - (remainder || 3);
+
+const sections = [
+  { type: "personal", title: "Personal" },
+  { type: "hackathon", title: "Hackathon" },
+  { type: "research", title: "Research" },
+] as const;
+
+let indexOffset = 0;
+const groups = sections.map(({ type, title }) => {
+  const items = projects.filter((p) => p.type === type);
+  const remainder = items.length % 3;
+  const startIndex = indexOffset;
+  indexOffset += items.length;
+  return {
+    type,
+    title,
+    items,
+    startIndex,
+    remainder,
+    lastRowSpan: remainder === 0 ? 2 : 6 / remainder,
+    lastRowStart: items.length - (remainder || 3),
+  };
+});
 ---
 
 <section id="projects" style="padding:60px 40px;border-bottom:1px solid #1a1a1a;">
-  <div id="projects-personal" class="section-header">
-    <span class="section-title">Personal</span>
-    <div class="section-line"></div>
-  </div>
+  {groups.map((group) => (
+    <Fragment>
+      <div id={`projects-${group.type}`} class="section-header">
+        <span class="section-title">{group.title}</span>
+        <div class="section-line"></div>
+      </div>
 
-  <div class="projects-grid">
-    {projects.map((project, i) => (
-      <div class="project-card" style={i >= lastRowStart && remainder !== 0 ? `grid-column: span ${lastRowSpan}` : ''}>
-        <div class="project-index">{project.index} / {project.category}</div>
-        <div class="project-name">{project.title}</div>
-        <div class="project-desc">{project.description}</div>
-        <div class="project-stack">
-          {project.technologies.map((tech) => (
-            <span class="stack-tag">{tech}</span>
+      {group.items.length > 0 && (
+        <div class="projects-grid">
+          {group.items.map((project, i) => (
+            <div class="project-card" style={i >= group.lastRowStart && group.remainder !== 0 ? `grid-column: span ${group.lastRowSpan}` : ''}>
+              <div class="project-index">{String(group.startIndex+i+1).padStart(3, "0")} - {project.category}</div>
+              <div class="project-name">{project.title}</div>
+              <div class="project-desc">{project.description}</div>
+              <div class="project-stack">
+                {project.technologies.map((tech) => (
+                  <span class="stack-tag">{tech}</span>
+                ))}
+              </div>
+              {project.award && <div class="project-award">{project.award}</div>}
+              {(project.hostedLink || project.link) && (
+                <a href={project.hostedLink || project.link} target="_blank" rel="noopener noreferrer" class="project-link">
+                  view →
+                </a>
+              )}
+            </div>
           ))}
         </div>
-        {project.award && <div class="project-award">{project.award}</div>}
-        {(project.hostedLink || project.link) && (
-          <a href={project.hostedLink || project.link} target="_blank" rel="noopener noreferrer" class="project-link">
-            view →
-          </a>
-        )}
-      </div>
-    ))}
-  </div>
-  <div id="projects-hackathon" class="section-header">
-    <span class="section-title">Hackathon</span>
-    <div class="section-line"></div>
-  </div>
-  <div id="projects-research" class="section-header">
-    <span class="section-title">Research</span>
-    <div class="section-line"></div>
-  </div>
+      )}
+    </Fragment>
+  ))}
 </section>
 
 
@@ -49,6 +67,9 @@ const lastRowStart = projects.length - (remainder || 3);
     gap: 16px;
     margin-bottom: 40px;
     scroll-margin-top: 80px;
+  }
+  .projects-grid + .section-header {
+    margin-top: 64px;
   }
   .section-title {
     font-family: var(--mono);
