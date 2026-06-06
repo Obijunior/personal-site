@@ -69,15 +69,15 @@ export const projects: ProjectData[] = [
 		category: "systems",
 		type: "personal",
 	},
-	{
-		title: "PORTFOLIO ALLOCATOR",
-		description:
-			"Quantitative portfolio research pipeline. Pulls market data, estimates returns via rolling statistics or ML (Gradient Boosting), builds Ledoit-Wolf covariance matrices, and runs weekly-rebalanced backtests across pluggable allocation strategies.",
-		technologies: ["Python", "scikit-learn", "NumPy", "Pandas"],
-		link: "https://github.com/Obijunior/portfolio-allocator",
-		category: "finance",
-		type: "personal",
-	},
+	// {
+	// 	title: "PORTFOLIO ALLOCATOR",
+	// 	description:
+	// 		"Quantitative portfolio research pipeline. Pulls market data, estimates returns via rolling statistics or ML (Gradient Boosting), builds Ledoit-Wolf covariance matrices, and runs weekly-rebalanced backtests across pluggable allocation strategies.",
+	// 	technologies: ["Python", "scikit-learn", "NumPy", "Pandas"],
+	// 	link: "https://github.com/Obijunior/portfolio-allocator",
+	// 	category: "finance",
+	// 	type: "personal",
+	// },
 	{
 		title: "TRADE WAR LAB SIMULATION PLATFORM",
 		description:
@@ -86,6 +86,23 @@ export const projects: ProjectData[] = [
 		hostedLink: "https://github.com/TradeWarLab/twl-simulation-webapp",
 		category: "economics / political science",
 		type: "research",
+	},
+	{
+		title: "Campus Shield",
+		description: "On-chain emergency fund for university students, powered by USDC on Base",
+		technologies: ["Base", "USDC", "Solidity", "Next.js"],
+		hostedLink: "https://mbc-2025.vercel.app/",
+		link: "https://github.com/Obijunior/mbc-2025",
+		category: "web3",
+		type: "hackathon",
+	},
+	{
+		title: "Black-Scholes implementation",
+		description: "Small project that implements the Black–Scholes option pricing model and helpers to fetch/compute inputs (historical volatility, current stock price, and an approximate USD risk-free rate). Only requires stock ticker and time to maturity",
+		technologies: ["Python", "NumPy", "Pandas"],
+		hostedLink: "https://github.com/Obijunior/black-scholes-implementation",
+		category: "finance",
+		type: "personal",
 	},
 ];
 
@@ -97,9 +114,9 @@ export const experiences: Experience[] = [
 		period: "05/2026 - 08/2026",
 		location: "Overland Park, KS",
 		description: [
-			"Co-architecting and developing a full-stack internal financial platform using React and Flask to streamline the tracking and recovery of missing capital through the corporate appeals process",
-			"Engineering data processing pipelines utilizing Pandas and NumPy to clean, manipulate, and reconcile complex financial datasets for agent review",
-			"Participated in code reviews, integration testing, and Agile sprints to deploy production-ready software solutions",
+			"Co-architecting and developing a full-stack internal financial platform using Flask to streamline the tracking and recovery of missing capital through the corporate appeals process.",
+			"Engineering database querying utilizing SQL to pull, manipulate, and reconcile complex financial datasets for agent review.", 
+			"Participated in code reviews, integration testing, and Agile sprints to deploy production-ready software solutions.",
 		],
 		technologies: ["Flask", "SQL", "SSMS", "Jira"],
 	},

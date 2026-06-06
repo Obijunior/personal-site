@@ -26,10 +26,10 @@ const groups = sections.map(({ type, title }) => {
 ---
 
 <section id="projects" style="padding:60px 40px;border-bottom:1px solid #1a1a1a;">
-  {groups.map((group) => (
+    {groups.map((group) => (
     <Fragment>
       <div id={`projects-${group.type}`} class="section-header">
-        <span class="section-title">{group.title}</span>
+        <span class="section-title">{group.title} Projects</span>
         <div class="section-line"></div>
       </div>
 
@@ -70,6 +70,19 @@ const groups = sections.map(({ type, title }) => {
   }
   .projects-grid + .section-header {
     margin-top: 64px;
+  }
+  .section-header--main {
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 56px;
+  }
+  .section-title--main {
+    font-family: var(--display);
+    font-size: 34px;
+    color: var(--fg);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1;
   }
   .section-title {
     font-family: var(--mono);
