@@ -170,7 +170,7 @@ export const education: Education[] = [
 		period: "Expected May 2028",
 		location: "Lawrence, KS",
 		details: [
-			"Digital Logic Design, Embedded Systems, Software Engineering, Discrete Structures, Operating Systems, DSA, Computer Architecture, Machine Learning, Theory of Computing, Modern Algebra, Linear Algebra, SDR Attacks & Defenses, EMS Security - NextG Networks ",
+			"Digital Logic Design, Embedded Systems, Software Engineering, Discrete Structures, Operating Systems, DSA, Computer Architecture, Machine Learning, Theory of Computing, Modern Algebra, Linear Algebra, SDR Attacks & Defenses, EMS Security",
 		],
 	},
 ];
