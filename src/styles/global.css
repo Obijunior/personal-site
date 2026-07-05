@@ -69,7 +69,3 @@ html {
 		transform: translateY(0);
 	}
 }
-
-a[target="_blank"]::after {
-	content: "↗";
-}
