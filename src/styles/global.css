@@ -69,3 +69,8 @@ html {
 		transform: translateY(0);
 	}
 }
+
+::selection {
+	background: var(--accent);
+	color: var(--bg);
+}

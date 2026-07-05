@@ -1,3 +1,5 @@
+import { subgroupAdd } from "three/tsl";
+
 export interface ProjectData {
 	title: string;
 	description: string;
@@ -63,7 +65,7 @@ export const projects: ProjectData[] = [
 	{
 		title: "VBRCC",
 		description:
-			"From-scratch C compiler written in Rust targeting x86-64. Hand-rolled lexer, recursive-descent parser, codegen, and a custom assembler subcrate that encodes Intel mnemonics into raw machine bytes. No LLVM, no parser generators.",
+			"From-scratch C compiler written in Rust targeting x86-64 Intel style assembly. Custom lexer, recursive-descent parser, codegen, and a custom assembler that encodes Intel mnemonics into raw machine bytes.",
 		technologies: ["Rust", "x86-64", "Compilers", "C"],
 		link: "https://github.com/Obijunior/vbrcc",
 		category: "systems",
@@ -114,9 +116,9 @@ export const experiences: Experience[] = [
 		period: "05/2026 - 08/2026",
 		location: "Overland Park, KS",
 		description: [
-			"Co-architecting and developing a full-stack internal financial platform using Flask to streamline the tracking and recovery of missing capital through the corporate appeals process.",
-			"Engineering database querying utilizing SQL to pull, manipulate, and reconcile complex financial datasets for agent review.", 
-			"Participated in code reviews, integration testing, and Agile sprints to deploy production-ready software solutions.",
+			"Developing full-stack internal financial tooling in Flask and SQL to automate tracking and recovery of ~$400k in missing capital through the corporate appeals process, improving reconciliation workflows across accounting operations.",
+			"Building an AWS-hosted internal LLM assistant featuring RAG, S3-backed document retrieval, semantic caching, rate limiting, and conversational search capabilities for finance teams.",
+
 		],
 		technologies: ["Flask", "SQL", "SSMS", "Jira"],
 	},
@@ -128,9 +130,9 @@ export const experiences: Experience[] = [
 		location: "Lawrence, KS",
 		website: "tradewarlab.com",
 		description: [
-			"Architected and developed a web-based trade war simulation platform utilized to model complex U.S.-China macroeconomic negotiation scenarios",
-			"Applied the TIES framework and structured datasets to analyze regional impacts of trade policy",
-			"Conducted statistical analysis and visualization in R to support research outputs",
+			"Built a fullstack web-based classroom simulation platform for U.S.–China trade negotiation scenarios, using NextJS, Typescript, and Supabase",
+			"The simulation supports instructor-managed phases, team briefings, real-time proposal voting, and multi-round bilateral negotiation, with structured data collection on negotiation behavior for research.",
+			"Wrote articles for the lab Substack page synthesizing current events and the latest academic research for a nontechnical audience",
 		],
 		technologies: ["R", "React", "TypeScript", "Supabase"],
 	},
@@ -168,7 +170,7 @@ export const education: Education[] = [
 		period: "Expected May 2028",
 		location: "Lawrence, KS",
 		details: [
-			"Digital Logic Design, Embedded Systems, Software Engineering, Discrete Structures, Operating Systems, DSA, Computer Architecture, Machine Learning, Theory of Computing, Modern Algebra, Linear Algebra",
+			"Digital Logic Design, Embedded Systems, Software Engineering, Discrete Structures, Operating Systems, DSA, Computer Architecture, Machine Learning, Theory of Computing, Modern Algebra, Linear Algebra, SDR Attacks & Defenses, EMS Security - NextG Networks ",
 		],
 	},
 ];
@@ -185,10 +187,10 @@ export const skills: SkillCategory[] = [
 	},
 	{
 		category: "Frameworks / Libraries",
-		items: ["React", "Next.js", "Astro", "Svelte", "TailwindCSS"],
+		items: ["React", "Next.js", "Astro", "Svelte", "TailwindCSS", "Flask"],
 	},
 	{
 		category: "Tools",
-		items: ["Git", "Postman", "Docker", "Node", "Linux", "Windows", "SSMS"],
+		items: ["Git", "Postman", "Docker", "Node", "Linux", "Windows", "SSMS", "AWS (S3, Bedrock)", "Supabase"],
 	},
 ];
