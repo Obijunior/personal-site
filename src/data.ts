@@ -191,6 +191,6 @@ export const skills: SkillCategory[] = [
 	},
 	{
 		category: "Tools",
-		items: ["Git", "Postman", "Docker", "Node", "Linux", "Windows", "SSMS", "AWS (S3, Bedrock)", "Supabase"],
+		items: ["Git", "Postman", "Docker", "Node", "Linux", "Windows", "SSMS", "AWS (S3, Bedrock)", "Supabase", "Jupyter Notebook"],
 	},
 ];
