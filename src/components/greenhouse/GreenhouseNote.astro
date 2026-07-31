@@ -1,0 +1,24 @@
+---
+interface Props {
+	title: string;
+	dateLabel: string;
+	tag: string;
+	readingTime: string;
+}
+const { title, dateLabel, tag, readingTime } = Astro.props;
+---
+
+<div class="wrap">
+	<div class="g2-article">
+		<div class="amar">
+			<a class="back" href="/notes">← Field Notes</a>
+			<div class="row"><span class="lab">Filed</span>{dateLabel}</div>
+			<div class="row"><span class="lab">Reading</span>{readingTime}</div>
+			<div class="row"><span class="lab">Topic</span>{tag}</div>
+		</div>
+		<div class="abody">
+			<h1>{title}</h1>
+			<slot />
+		</div>
+	</div>
+</div>

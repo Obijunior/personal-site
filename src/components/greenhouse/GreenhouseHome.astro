@@ -1,0 +1,111 @@
+---
+import { projects, experiences, education, certifications } from "../../data";
+import { getPublishedNotes } from "../../lib/notes";
+
+const notes = await getPublishedNotes();
+const ed = education[0];
+const pad = (n: number) => String(n).padStart(2, "0");
+const latest = notes[0];
+const rest = notes.slice(1);
+---
+
+<div class="wrap">
+	<div class="g2-top">
+		<span>Henry Nwagwu — Index</span>
+		<span class="r">Greenhouse Edition · 2026</span>
+	</div>
+
+	<div class="g2-hero">
+		<div class="g2-margin">
+			<div class="row"><span class="lab">Based</span>Lawrence, Kansas</div>
+			<div class="row"><span class="lab">Fields</span>Systems · Security · Web3</div>
+			<div class="row"><span class="lab">With</span>VICEROY Scholar<br />Trade War Lab</div>
+			<div class="row"><span class="lab">Now</span>in progress…</div>
+		</div>
+		<div class="g2-body">
+			<div class="g2-eyebrow">Software · Security · Decentralized systems</div>
+			<h1 class="g2-name">Henry<br /><em>Nwagwu</em></h1>
+			<p class="g2-bio">
+				Studying CS + Mathematics at the <i>University of Kansas</i>. Building economic-conflict
+				simulations at the Trade War Lab, with interests in systems infrastructure, security
+				research, quantitative modeling, and decentralized systems.
+			</p>
+			<div class="g2-links">
+				<a href="https://github.com/Obijunior" target="_blank" rel="noopener">GitHub</a>
+				<a href="https://linkedin.com/in/o-henry-nwagwu" target="_blank" rel="noopener">LinkedIn</a>
+				<a href="/resume.pdf">Resume</a>
+				<a href="mailto:o.henry.nwagwu@gmail.com">Email</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="g2-sec">
+		<div class="g2-sec-h"><span class="k">01</span><h2>Collected Works</h2><span class="cnt">{projects.length} entries</span><span class="rule"></span></div>
+		{projects.map((p, i) => (
+			<div class="g2-work">
+				<div class="no">{pad(i + 1)}</div>
+				<div><div class="ttl">{p.title}</div><div class="desc">{p.description}</div></div>
+				<div class="meta">
+					<div class="tag">{p.category}</div>
+					<div>{p.technologies.join(" · ")}</div>
+					{p.award && <div class="aw">{p.award}</div>}
+					{(p.hostedLink || p.link) && (
+						<div>
+							{p.hostedLink && <a href={p.hostedLink} target="_blank" rel="noopener">live ↗</a>}
+							{p.hostedLink && p.link && " · "}
+							{p.link && <a href={p.link} target="_blank" rel="noopener">src ↗</a>}
+						</div>
+					)}
+				</div>
+			</div>
+		))}
+	</div>
+
+	<div class="g2-sec">
+		<div class="g2-sec-h"><span class="k">02</span><h2>Experience</h2><span class="rule"></span></div>
+		{experiences.map((e) => (
+			<div class="g2-exp">
+				<div class="pd">{e.period}<br /><span class="lo">{e.location}</span></div>
+				<div>
+					<div class="co">{e.company}</div>
+					<div class="ti">{e.title}</div>
+					<div class="ds">{e.description.join(" ")}</div>
+				</div>
+			</div>
+		))}
+	</div>
+
+	<div class="g2-sec">
+		<div class="g2-sec-h"><span class="k">03</span><h2>Education</h2><span class="rule"></span></div>
+		<div class="g2-edu">
+			<div class="main">
+				<div class="inst">{ed.institution}</div>
+				<div class="deg">{ed.degree}</div>
+				<div class="per">{ed.period} · {ed.location}</div>
+				<div class="cw"><b>Selected coursework</b>{ed.details?.[0]}</div>
+			</div>
+			<div class="side">
+				<div class="lab">Certifications</div>
+				{certifications.map((c) => <div class="cert">{c.name}</div>)}
+			</div>
+		</div>
+	</div>
+
+	<div class="g2-sec">
+		<div class="g2-sec-h"><span class="k">04</span><h2>Field Notes</h2><span class="cnt">Journal</span><span class="rule"></span></div>
+		{latest && (
+			<a class="g2-feature" href={`/notes/${latest.slug}`}>
+				<div class="fk">Latest note · {latest.dateLabel}</div>
+				<h3>{latest.title}</h3>
+				<p>{latest.blurb}</p>
+				<span class="more">Read the note →</span>
+			</a>
+		)}
+		{rest.map((n) => (
+			<a class="g2-note" href={`/notes/${n.slug}`}>
+				<div class="dt">{n.dateLabel}<br />{n.tag}</div>
+				<div><h3>{n.title}</h3><p>{n.blurb}</p></div>
+			</a>
+		))}
+	</div>
+</div>

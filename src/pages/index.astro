@@ -1,28 +1,8 @@
 ---
-import Background from "../components/Background";
-import CurrentlySection from "../components/CurrentlySection.astro";
-import EducationSection from "../components/EducationSection.astro";
-import ExperienceSection from "../components/ExperienceSection.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
-import HeroSection from "../components/HeroSection.astro";
-import ProjectsSection from "../components/ProjectsSection.astro";
 import Layout from "../layouts/Layout.astro";
-
-import "../styles/global.css";
+import DesignHome from "../components/DesignHome.astro";
 ---
 
 <Layout>
-    <Header />
-    <main>
-        <!-- <div style="position:relative;"> -->
-            <!-- <Background client:load /> -->
-            <HeroSection />
-        <!-- </div> -->
-        <ProjectsSection />
-        <!-- <CurrentlySection /> -->
-        <ExperienceSection />
-        <EducationSection />
-    </main>
-    <Footer />
+	<DesignHome />
 </Layout>

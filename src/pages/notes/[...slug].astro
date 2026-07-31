@@ -1,0 +1,25 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import DesignNote from "../../components/DesignNote.astro";
+import { SITE } from "../../config";
+
+export async function getStaticPaths() {
+	const entries = await getCollection("notes", ({ data }) => data.draft !== true);
+	return entries.map((entry) => ({
+		params: { slug: entry.id },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data.date;
+const dateLabel = `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, "0")}.${String(d.getDate()).padStart(2, "0")}`;
+---
+
+<Layout title={`${entry.data.title} — ${SITE.title}`} description={entry.data.blurb}>
+	<DesignNote title={entry.data.title} dateLabel={dateLabel} tag={entry.data.tag} readingTime={entry.data.readingTime}>
+		<Content />
+	</DesignNote>
+</Layout>

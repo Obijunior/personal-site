@@ -1,76 +1,55 @@
 @import "tailwindcss";
 
+:root {
+	--font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+	--font-serif: "Newsreader", Georgia, "Palatino Linotype", serif;
+	/* accent presets — overridden per [data-accent] below */
+	--accent: #d88060;
+	--accent-ink: #1a1712; /* readable text color when accent is a background */
+}
+html[data-accent="rust"] {
+	--accent: #8a3324;
+	--accent-ink: #f7f4ec;
+}
+html[data-accent="wine"] {
+	--accent: #9c3357;
+	--accent-ink: #f7f4ec;
+}
+html[data-accent="ochre"] {
+	--accent: #a8642a;
+	--accent-ink: #f7f4ec;
+}
+html[data-accent="coral"] {
+	--accent: #d88060;
+	--accent-ink: #1a1712;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
 html {
 	scroll-behavior: smooth;
 }
-
-:root {
-	--bg: #0c0c0c;
-	--bg2: #111111;
-	--bg3: #181818;
-	--fg: #e8e4dc;
-	--fg2: #9e958a;
-	--fg3: #706b64;
-	--accent: #c8a96e;
-	--accent2: #7b9ea8;
-	--mono: "IBM Plex Mono", monospace;
-	--display: "Bebas Neue", sans-serif;
-	--body: "DM Sans", sans-serif;
+body {
+	min-height: 100vh;
+	overflow-x: hidden;
 }
-
-@theme {
-  --color-bg: #0c0c0c;
-  --color-bg2: #111111;
-  --color-bg3: #181818;
-  --color-fg: #e8e4dc;
-  --color-fg2: #9e958a;
-  --color-fg3: #706b64;
-  --color-accent: #c8a96e;
-  --color-accent2: #7b9ea8;
-
-  --font-mono: 'IBM Plex Mono', monospace;
-  --font-display: 'Bebas Neue', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
-}
-
-@layer base {
-	body {
-		background: var(--bg);
-		color: var(--fg);
-		font-family: var(--body);
-		min-height: 100vh;
-		overflow-x: hidden;
-	}
-
-	* {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
 	}
 }
 
-@keyframes pulse {
-	0%,
-	100% {
-		opacity: 1;
-	}
-	50% {
-		opacity: 0.3;
-	}
-}
-
-@keyframes fadeUp {
-	from {
-		opacity: 0;
-		transform: translateY(16px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
+/* accent-based text highlight, shared by both designs */
+.hl {
+	background: var(--accent);
+	color: var(--accent-ink);
+	padding: 0 0.12em;
 }
 
 ::selection {
 	background: var(--accent);
-	color: var(--bg);
+	color: var(--accent-ink);
 }

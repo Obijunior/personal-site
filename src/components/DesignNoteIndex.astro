@@ -1,0 +1,13 @@
+---
+import { SITE } from "../config";
+import type { NoteCard } from "../lib/notes";
+import OnchainNoteIndex from "./onchain/OnchainNoteIndex.astro";
+import GreenhouseNoteIndex from "./greenhouse/GreenhouseNoteIndex.astro";
+
+interface Props {
+	notes: NoteCard[];
+}
+const { notes } = Astro.props;
+---
+
+{SITE.design === "greenhouse" ? <GreenhouseNoteIndex notes={notes} /> : <OnchainNoteIndex notes={notes} />}

@@ -1,0 +1,7 @@
+---
+import { SITE } from "../config";
+import OnchainHome from "./onchain/OnchainHome.astro";
+import GreenhouseHome from "./greenhouse/GreenhouseHome.astro";
+---
+
+{SITE.design === "greenhouse" ? <GreenhouseHome /> : <OnchainHome />}

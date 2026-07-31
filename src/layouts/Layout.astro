@@ -1,13 +1,19 @@
 ---
 import "../styles/global.css";
+import "../styles/onchain.css";
+import "../styles/greenhouse.css";
+import { SITE } from "../config";
 
-const title = "Henry Nwagwu | Portfolio";
-const description = "Henry Nwagwu — CS + Math at the University of Kansas. Interested in systems infrastructure, security research, quantitative modeling, and decentralized systems.";
-const url = "https://henrynwagwu.me";
+interface Props {
+	title?: string;
+	description?: string;
+}
+const { title = SITE.title, description = SITE.description } = Astro.props;
+const url = SITE.url;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-design={SITE.design} data-accent={SITE.accent}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -27,7 +33,10 @@ const url = "https://henrynwagwu.me";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"
+			rel="stylesheet"
+		/>
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
@@ -35,7 +44,8 @@ const url = "https://henrynwagwu.me";
 		<!-- Grain overlay -->
 		<div
 			style="position:fixed;inset:0;pointer-events:none;z-index:100;opacity:0.035;background-image:url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E&quot;);background-repeat:repeat;background-size:128px;"
-		></div>
+		>
+		</div>
 
 		<slot />
 	</body>

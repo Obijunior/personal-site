@@ -1,0 +1,25 @@
+---
+import type { NoteCard } from "../../lib/notes";
+interface Props {
+	notes: NoteCard[];
+}
+const { notes } = Astro.props;
+const pad = (n: number) => String(n).padStart(2, "0");
+---
+
+<div class="wrap">
+	<div class="o-top">
+		<span class="brand">HENRYNWAGWU.ME</span>
+		<span class="st"><span class="o-nav"><a href="/">← Home</a></span></span>
+	</div>
+	<section class="o-sec" style="border-top:0;">
+		<div class="o-sec-h"><span class="s">§</span><span class="t">Writing</span><span class="meta">{notes.length} notes</span></div>
+		{notes.map((n, i) => (
+			<a class="o-post" href={`/notes/${n.slug}`}>
+				<div class="n">{pad(i + 1)}</div>
+				<div><h3>{n.title}</h3><p>{n.blurb}</p></div>
+				<div class="dt">{n.dateLabel}<br />{n.tag}</div>
+			</a>
+		))}
+	</section>
+</div>

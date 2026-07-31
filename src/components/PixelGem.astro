@@ -1,0 +1,31 @@
+---
+// Pixel-art gem, rendered as an SVG grid of squares. Colors:
+// C = coral, B = blue facet, D = darker coral shadow.
+const GEM = [
+	"...CCCCC...",
+	"..CCCCCCC..",
+	".CCCCCCCCC.",
+	"CCCCCBCCCCC",
+	"BCCCCCCCCCB",
+	".DCCCCCCCD.",
+	"..DCCCCCD..",
+	"...DCCCD...",
+	"....DCD....",
+	".....D....",
+];
+const MAP: Record<string, string> = { C: "#d88060", B: "#5b7fb5", D: "#c25f3c" };
+const px = 15;
+const w = GEM[0].length * px;
+const h = GEM.length * px;
+const rects: { x: number; y: number; fill: string }[] = [];
+GEM.forEach((row, y) => {
+	for (let x = 0; x < row.length; x++) {
+		const fill = MAP[row[x]];
+		if (fill) rects.push({ x: x * px, y: y * px, fill });
+	}
+});
+---
+
+<svg viewBox={`0 0 ${w} ${h}`} xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+	{rects.map((r) => <rect x={r.x} y={r.y} width={px} height={px} fill={r.fill} />)}
+</svg>

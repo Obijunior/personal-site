@@ -1,0 +1,23 @@
+---
+import type { NoteCard } from "../../lib/notes";
+interface Props {
+	notes: NoteCard[];
+}
+const { notes } = Astro.props;
+---
+
+<div class="wrap">
+	<div class="g2-top">
+		<a href="/" style="color:var(--soft);text-decoration:none;">← Henry Nwagwu — Index</a>
+		<span class="r">Field Notes · 2026</span>
+	</div>
+	<div class="g2-sec">
+		<div class="g2-sec-h"><span class="k">§</span><h2>Field Notes</h2><span class="cnt">{notes.length} entries</span><span class="rule"></span></div>
+		{notes.map((n) => (
+			<a class="g2-note" href={`/notes/${n.slug}`} style="border-top:1px solid var(--line);">
+				<div class="dt">{n.dateLabel}<br />{n.tag}</div>
+				<div><h3>{n.title}</h3><p>{n.blurb}</p></div>
+			</a>
+		))}
+	</div>
+</div>

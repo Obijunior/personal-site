@@ -1,0 +1,116 @@
+---
+import { projects, experiences, education, certifications } from "../../data";
+import { getPublishedNotes } from "../../lib/notes";
+import PixelGem from "../PixelGem.astro";
+
+const notes = await getPublishedNotes();
+const ed = education[0];
+const stats = [
+	{ k: "Based", v: "KS" },
+	{ k: "Focus", v: "Systems" },
+	{ k: "Grad", v: "2028" },
+	{ k: "GPA", v: "3.72" },
+];
+const pad = (n: number) => String(n).padStart(2, "0");
+---
+
+<div class="wrap">
+	<div class="o-top">
+		<span class="brand">HENRYNWAGWU.ME</span>
+		<span class="st">
+			<span>PORTFOLIO / <b>2026</b></span>
+			<span>LAWRENCE, KS</span>
+		</span>
+	</div>
+
+	<section class="o-hero">
+		<div>
+			<div class="o-kick">Software engineering · Cyber security · Web3</div>
+			<h1 class="o-name">Henry<br /><span class="hl">Nwagwu</span></h1>
+			<p class="o-bio">
+				Studying CS + Mathematics at the University of Kansas. Building economic-conflict
+				simulations at the Trade War Lab
+				<!-- simulations at the <span class="accent-b">Trade War Lab</span> -->
+			</p>
+			<div class="o-actions">
+				<a class="o-btn primary" href="https://github.com/Obijunior" target="_blank" rel="noopener">GitHub →</a>
+				<a class="o-btn primary" href="https://linkedin.com/in/o-henry-nwagwu" target="_blank" rel="noopener">LinkedIn →</a>
+				<a class="o-btn" href="/resume.pdf">Resume →</a>
+				<a class="o-btn blue" href="mailto:o.henry.nwagwu@gmail.com">Contact →</a>
+			</div>
+		</div>
+		<div class="o-gem"><PixelGem /></div>
+	</section>
+
+	<!-- <div class="o-stats">
+		{stats.map((s) => (
+			<div class="o-stat"><div class="v">{s.v}</div><div class="k">{s.k}</div></div>
+		))}
+	</div> -->
+
+	<section class="o-sec" id="work">
+		<div class="o-sec-h"><span class="s">§ 01</span><span class="t">Selected Work</span><span class="meta">{projects.length} entries</span></div>
+		<div class="o-projs">
+			{projects.map((p, i) => (
+				<div class="o-proj">
+					<div class="top">
+						<span class="id">PROJ_{pad(i + 1)} · {p.category}</span>
+						<span class="tag">{p.type}</span>
+					</div>
+					<h3>{p.title}</h3>
+					<p>{p.description}</p>
+					<div class="stk">{p.technologies.map((t) => <span>{t}</span>)}</div>
+					{p.award && <div class="aw">★ {p.award}</div>}
+					{(p.hostedLink || p.link) && (
+						<div class="links">
+							{p.hostedLink && <a href={p.hostedLink} target="_blank" rel="noopener">Live →</a>}
+							{p.link && <a href={p.link} target="_blank" rel="noopener">Source →</a>}
+						</div>
+					)}
+				</div>
+			))}
+		</div>
+	</section>
+
+	<section class="o-sec">
+		<div class="o-sec-h"><span class="s">§ 02</span><span class="t">Experience</span></div>
+		{experiences.map((e) => (
+			<div class="o-exp">
+				<div class="pd">{e.period}</div>
+				<div>
+					<h3>{e.company}</h3>
+					<div class="ti">{e.title}</div>
+					<div class="ds">{e.description.join(" ")}</div>
+				</div>
+				<div class="lo">{e.location}</div>
+			</div>
+		))}
+	</section>
+
+	<section class="o-sec">
+		<div class="o-sec-h"><span class="s">§ 03</span><span class="t">Education</span><span class="meta">Lawrence, KS</span></div>
+		<div class="o-edu">
+			<div class="main">
+				<div class="inst">{ed.institution}</div>
+				<div class="deg">{ed.degree}</div>
+				<div class="per">{ed.period} · {ed.location}</div>
+				<div class="cw">{ed.details?.[0]}</div>
+			</div>
+			<div class="side">
+				<div class="lab">// certifications</div>
+				{certifications.map((c) => <div class="cert">{c.name}</div>)}
+			</div>
+		</div>
+	</section>
+
+	<!-- <section class="o-sec">
+		<div class="o-sec-h"><span class="s">§ 04</span><span class="t">Writing</span><span class="meta">{notes.length} notes</span></div>
+		{notes.map((n, i) => (
+			<a class="o-post" href={`/notes/${n.slug}`}>
+				<div class="n">{pad(i + 1)}</div>
+				<div><h3>{n.title}</h3><p>{n.blurb}</p></div>
+				<div class="dt">{n.dateLabel}<br />{n.tag}</div>
+			</a>
+		))}
+	</section> -->
+</div>

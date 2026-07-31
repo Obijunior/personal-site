@@ -1,0 +1,21 @@
+---
+import { SITE } from "../config";
+import OnchainNote from "./onchain/OnchainNote.astro";
+import GreenhouseNote from "./greenhouse/GreenhouseNote.astro";
+
+interface Props {
+	title: string;
+	dateLabel: string;
+	tag: string;
+	readingTime: string;
+}
+const props = Astro.props;
+---
+
+{
+	SITE.design === "greenhouse" ? (
+		<GreenhouseNote {...props}><slot /></GreenhouseNote>
+	) : (
+		<OnchainNote {...props}><slot /></OnchainNote>
+	)
+}

@@ -7,7 +7,7 @@ export interface ProjectData {
 	hostedLink?: string;
 	link?: string;
 	category: string;
-	type: "personal" | "hackathon" | "research";
+	type: "personal" | "hack-a-thon" | "research";
 	award?: string;
 	featured?: boolean;
 }
@@ -59,7 +59,7 @@ export const projects: ProjectData[] = [
 		hostedLink: "https://kubi-cohort-2025.vercel.app/",
 		link: "https://github.com/Obijunior/TerraNova-KUBICohort2025/",
 		category: "web3",
-		type: "hackathon",
+		type: "hack-a-thon",
 		award: "Best Business Analysis · Best Use of XRPL",
 	},
 	{
@@ -86,6 +86,7 @@ export const projects: ProjectData[] = [
 			"Web-based classroom simulation platform for U.S.–China trade negotiation scenarios. Supports instructor-managed phases, team briefings, real-time proposal voting, and multi-round bilateral negotiation, with structured data collection on negotiation behavior for research.",
 		technologies: ["Next.js", "Supabase", "TypeScript", "Full-Stack Web Development"],
 		hostedLink: "https://github.com/TradeWarLab/twl-simulation-webapp",
+		link: "https://github.com/tradeWarLab/twl-simulation-webapp",
 		category: "economics / political science",
 		type: "research",
 	},
@@ -96,13 +97,13 @@ export const projects: ProjectData[] = [
 		hostedLink: "https://mbc-2025.vercel.app/",
 		link: "https://github.com/Obijunior/mbc-2025",
 		category: "web3",
-		type: "hackathon",
+		type: "hack-a-thon",
 	},
 	{
 		title: "Black-Scholes implementation",
 		description: "Small project that implements the Black–Scholes option pricing model and helpers to fetch/compute inputs (historical volatility, current stock price, and an approximate USD risk-free rate). Only requires stock ticker and time to maturity",
 		technologies: ["Python", "NumPy", "Pandas"],
-		hostedLink: "https://github.com/Obijunior/black-scholes-implementation",
+		link: "https://github.com/Obijunior/black-scholes-implementation",
 		category: "finance",
 		type: "personal",
 	},

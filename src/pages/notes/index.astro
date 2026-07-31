@@ -1,0 +1,12 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import DesignNoteIndex from "../../components/DesignNoteIndex.astro";
+import { getPublishedNotes } from "../../lib/notes";
+import { SITE } from "../../config";
+
+const notes = await getPublishedNotes();
+---
+
+<Layout title={`Writing — ${SITE.title}`} description="Field notes on systems, security, and decentralized software.">
+	<DesignNoteIndex notes={notes} />
+</Layout>

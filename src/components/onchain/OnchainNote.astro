@@ -1,0 +1,25 @@
+---
+interface Props {
+	title: string;
+	dateLabel: string;
+	tag: string;
+	readingTime: string;
+}
+const { title, dateLabel, tag, readingTime } = Astro.props;
+---
+
+<div class="wrap">
+	<div class="o-top">
+		<span class="brand">HENRYNWAGWU.ME</span>
+		<span class="st"><span class="o-nav"><a href="/notes">← Writing</a></span></span>
+	</div>
+	<article class="o-article">
+		<div class="hd">
+			<div class="meta">$ cat <b>{title.toLowerCase().replace(/\s+/g, "-")}</b>.md — {dateLabel} — {readingTime} — {tag}</div>
+			<h1>{title}</h1>
+		</div>
+		<div class="body">
+			<slot />
+		</div>
+	</article>
+</div>

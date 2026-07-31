@@ -1,0 +1,503 @@
+/* ============================================================
+   GREENHOUSE design — scoped by html[data-design="greenhouse"]
+   Accent (--accent) is provided by global.css via [data-accent]
+   (use rust / wine / ochre with this design). --leaf is constant.
+   ============================================================ */
+html[data-design="greenhouse"] {
+	--pa: #f2efe6;
+	--pa2: #f7f4ec;
+	--ink: #252017;
+	--soft: #6b5d45;
+	--faint: #948b78;
+	--leaf: #4a5a38;
+	--line: #ddd6c6;
+	--line2: #cbc1ab;
+	background: var(--pa);
+	color: var(--ink);
+	font-family: var(--font-serif);
+	background-image: linear-gradient(rgba(74, 90, 56, 0.045) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(74, 90, 56, 0.045) 1px, transparent 1px);
+	background-size: 54px 54px;
+	background-position: center top;
+}
+html[data-design="greenhouse"] body {
+	background: var(--pa);
+}
+html[data-design="greenhouse"] .wrap {
+	max-width: 1040px;
+	margin: 0 auto;
+	padding: 0 48px;
+}
+html[data-design="greenhouse"] .g2-top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+	padding: 22px 0 12px;
+	border-bottom: 1px solid var(--line2);
+	font-family: var(--font-mono);
+	font-size: 10.5px;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--soft);
+}
+html[data-design="greenhouse"] .g2-top .r {
+	color: var(--accent);
+	white-space: nowrap;
+}
+html[data-design="greenhouse"] .g2-hero {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	border-bottom: 1px solid var(--line2);
+}
+html[data-design="greenhouse"] .g2-margin {
+	border-right: 1px solid var(--line2);
+	padding: 48px 34px 48px 0;
+	font-family: var(--font-mono);
+	font-size: 11px;
+	line-height: 1.9;
+	color: var(--soft);
+}
+html[data-design="greenhouse"] .g2-margin .row {
+	margin-bottom: 22px;
+}
+html[data-design="greenhouse"] .g2-margin .lab {
+	color: var(--accent);
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	font-size: 9.5px;
+	display: block;
+	margin-bottom: 3px;
+}
+html[data-design="greenhouse"] .g2-body {
+	padding: 48px 0 48px 44px;
+}
+html[data-design="greenhouse"] .g2-eyebrow {
+	font-family: var(--font-mono);
+	font-size: 11px;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: var(--leaf);
+	margin-bottom: 20px;
+}
+html[data-design="greenhouse"] .g2-name {
+	font-size: clamp(58px, 8.5vw, 116px);
+	line-height: 0.92;
+	letter-spacing: -0.015em;
+	margin: 0 0 24px;
+	font-weight: 400;
+	text-wrap: balance;
+}
+html[data-design="greenhouse"] .g2-name em {
+	font-style: italic;
+	color: var(--soft);
+}
+html[data-design="greenhouse"] .g2-bio {
+	font-size: 18px;
+	line-height: 1.72;
+	max-width: 52ch;
+	color: #3a352b;
+	margin-bottom: 28px;
+}
+html[data-design="greenhouse"] .g2-bio i {
+	color: var(--accent);
+	font-style: normal;
+}
+html[data-design="greenhouse"] .g2-links {
+	display: flex;
+	gap: 24px;
+	flex-wrap: wrap;
+	font-family: var(--font-mono);
+	font-size: 11px;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+}
+html[data-design="greenhouse"] .g2-links a {
+	color: var(--ink);
+	text-decoration: none;
+	border-bottom: 1px solid var(--line2);
+	padding-bottom: 2px;
+	transition: color 0.2s, border-color 0.2s;
+}
+html[data-design="greenhouse"] .g2-links a:hover {
+	color: var(--accent);
+	border-color: var(--accent);
+}
+html[data-design="greenhouse"] .g2-sec {
+	padding: 52px 0;
+	border-top: 1px solid var(--line);
+}
+html[data-design="greenhouse"] .g2-sec:first-of-type {
+	border-top: 0;
+}
+html[data-design="greenhouse"] .g2-sec-h {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	gap: 16px;
+	align-items: baseline;
+	margin-bottom: 32px;
+}
+html[data-design="greenhouse"] .g2-sec-h .k {
+	font-family: var(--font-mono);
+	font-size: 11px;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: var(--accent);
+}
+html[data-design="greenhouse"] .g2-sec-h h2 {
+	font-size: 15px;
+	font-family: var(--font-mono);
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	font-weight: 400;
+	margin: 0;
+	color: var(--soft);
+}
+html[data-design="greenhouse"] .g2-sec-h .cnt {
+	font-family: var(--font-mono);
+	font-size: 10.5px;
+	color: var(--faint);
+}
+html[data-design="greenhouse"] .g2-sec-h .rule {
+	grid-column: 1 / -1;
+	height: 1px;
+	background: var(--line);
+}
+html[data-design="greenhouse"] .g2-work {
+	display: grid;
+	grid-template-columns: 52px 1fr 190px;
+	gap: 26px;
+	padding: 24px 0;
+	border-bottom: 1px solid var(--line);
+	align-items: start;
+}
+html[data-design="greenhouse"] .g2-work:last-child {
+	border-bottom: 0;
+}
+html[data-design="greenhouse"] .g2-work .no {
+	font-family: var(--font-mono);
+	font-size: 12px;
+	color: var(--accent);
+	padding-top: 6px;
+}
+html[data-design="greenhouse"] .g2-work .ttl {
+	font-size: 24px;
+	font-style: italic;
+	color: var(--leaf);
+	margin-bottom: 9px;
+}
+html[data-design="greenhouse"] .g2-work .desc {
+	font-size: 15px;
+	line-height: 1.65;
+	color: #40392d;
+	max-width: 60ch;
+}
+html[data-design="greenhouse"] .g2-work .meta {
+	font-family: var(--font-mono);
+	font-size: 10.5px;
+	line-height: 1.9;
+	color: var(--soft);
+	text-align: right;
+}
+html[data-design="greenhouse"] .g2-work .meta .tag {
+	color: var(--accent);
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+}
+html[data-design="greenhouse"] .g2-work .meta .aw {
+	color: var(--leaf);
+	font-style: italic;
+}
+html[data-design="greenhouse"] .g2-work .meta a {
+	color: var(--soft);
+	text-decoration: none;
+	border-bottom: 1px solid var(--line2);
+}
+html[data-design="greenhouse"] .g2-work .meta a:hover {
+	color: var(--accent);
+}
+html[data-design="greenhouse"] .g2-exp {
+	display: grid;
+	grid-template-columns: 180px 1fr;
+	gap: 30px;
+	padding: 24px 0;
+	border-bottom: 1px solid var(--line);
+}
+html[data-design="greenhouse"] .g2-exp:last-child {
+	border-bottom: 0;
+}
+html[data-design="greenhouse"] .g2-exp .pd {
+	font-family: var(--font-mono);
+	font-size: 10.5px;
+	letter-spacing: 0.04em;
+	color: var(--soft);
+	line-height: 1.8;
+}
+html[data-design="greenhouse"] .g2-exp .pd .lo {
+	color: var(--faint);
+}
+html[data-design="greenhouse"] .g2-exp .co {
+	font-size: 21px;
+	font-style: italic;
+	color: var(--leaf);
+	margin-bottom: 3px;
+}
+html[data-design="greenhouse"] .g2-exp .ti {
+	font-size: 13.5px;
+	color: var(--ink);
+	margin-bottom: 9px;
+}
+html[data-design="greenhouse"] .g2-exp .ds {
+	font-size: 14.5px;
+	line-height: 1.65;
+	color: #40392d;
+	max-width: 66ch;
+}
+html[data-design="greenhouse"] .g2-edu {
+	display: grid;
+	grid-template-columns: 1.4fr 1fr;
+	border: 1px solid var(--line2);
+	background: var(--pa2);
+}
+html[data-design="greenhouse"] .g2-edu .main {
+	padding: 30px 32px;
+	border-right: 1px solid var(--line);
+}
+html[data-design="greenhouse"] .g2-edu .inst {
+	font-size: 26px;
+	font-style: italic;
+	color: var(--leaf);
+	margin-bottom: 6px;
+}
+html[data-design="greenhouse"] .g2-edu .deg {
+	font-size: 15px;
+	color: var(--ink);
+	margin-bottom: 4px;
+}
+html[data-design="greenhouse"] .g2-edu .per {
+	font-family: var(--font-mono);
+	font-size: 10.5px;
+	color: var(--soft);
+	letter-spacing: 0.04em;
+	margin-bottom: 18px;
+}
+html[data-design="greenhouse"] .g2-edu .cw {
+	font-size: 13.5px;
+	line-height: 1.7;
+	color: #4a4436;
+}
+html[data-design="greenhouse"] .g2-edu .cw b {
+	color: var(--accent);
+	font-weight: 400;
+	font-family: var(--font-mono);
+	font-size: 9.5px;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	display: block;
+	margin-bottom: 6px;
+}
+html[data-design="greenhouse"] .g2-edu .side {
+	padding: 30px 32px;
+}
+html[data-design="greenhouse"] .g2-edu .side .lab {
+	font-family: var(--font-mono);
+	font-size: 9.5px;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--faint);
+	margin-bottom: 12px;
+}
+html[data-design="greenhouse"] .g2-edu .cert {
+	font-style: italic;
+	color: var(--leaf);
+	font-size: 16px;
+	padding: 8px 0;
+	border-bottom: 1px solid var(--line);
+}
+html[data-design="greenhouse"] .g2-edu .cert:last-child {
+	border-bottom: 0;
+}
+html[data-design="greenhouse"] .g2-feature {
+	border: 1px solid var(--line2);
+	border-left: 3px solid var(--accent);
+	background: var(--pa2);
+	padding: 26px 30px;
+	margin-bottom: 8px;
+	display: block;
+	text-decoration: none;
+	color: inherit;
+}
+html[data-design="greenhouse"] .g2-feature .fk {
+	font-family: var(--font-mono);
+	font-size: 10px;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--accent);
+	margin-bottom: 12px;
+}
+html[data-design="greenhouse"] .g2-feature h3 {
+	font-size: 27px;
+	font-style: italic;
+	font-weight: 400;
+	margin: 0 0 10px;
+	line-height: 1.1;
+	color: var(--leaf);
+}
+html[data-design="greenhouse"] .g2-feature p {
+	font-size: 14.5px;
+	line-height: 1.6;
+	margin: 0 0 14px;
+	color: #40392d;
+	max-width: 66ch;
+}
+html[data-design="greenhouse"] .g2-feature .more {
+	font-family: var(--font-mono);
+	font-size: 11px;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--accent);
+	border-bottom: 1px solid var(--accent);
+	padding-bottom: 2px;
+}
+html[data-design="greenhouse"] .g2-note {
+	display: grid;
+	grid-template-columns: 120px 1fr;
+	gap: 24px;
+	padding: 20px 0;
+	border-bottom: 1px solid var(--line);
+	text-decoration: none;
+	color: inherit;
+	transition: background 0.2s;
+}
+html[data-design="greenhouse"] .g2-note:first-of-type {
+	border-top: 1px solid var(--line);
+	margin-top: 18px;
+}
+html[data-design="greenhouse"] .g2-note:hover {
+	background: rgba(0, 0, 0, 0.02);
+}
+html[data-design="greenhouse"] .g2-note .dt {
+	font-family: var(--font-mono);
+	font-size: 10.5px;
+	color: var(--soft);
+	padding-top: 4px;
+}
+html[data-design="greenhouse"] .g2-note h3 {
+	font-size: 20px;
+	font-style: italic;
+	font-weight: 400;
+	margin: 0 0 5px;
+	color: var(--ink);
+}
+html[data-design="greenhouse"] .g2-note:hover h3 {
+	color: var(--accent);
+}
+html[data-design="greenhouse"] .g2-note p {
+	font-size: 13.5px;
+	line-height: 1.55;
+	color: #4a4436;
+	margin: 0;
+	max-width: 64ch;
+}
+html[data-design="greenhouse"] .g2-article {
+	display: grid;
+	grid-template-columns: 1fr 2.5fr;
+	padding: 48px 0 80px;
+	border-top: 1px solid var(--line);
+}
+html[data-design="greenhouse"] .g2-article .amar {
+	border-right: 1px solid var(--line);
+	padding-right: 30px;
+	font-family: var(--font-mono);
+	font-size: 11px;
+	line-height: 1.9;
+	color: var(--soft);
+}
+html[data-design="greenhouse"] .g2-article .amar .lab {
+	color: var(--accent);
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	font-size: 9.5px;
+	display: block;
+	margin: 0 0 3px;
+}
+html[data-design="greenhouse"] .g2-article .amar .row {
+	margin-bottom: 20px;
+}
+html[data-design="greenhouse"] .g2-article .amar .back {
+	color: var(--accent);
+	text-decoration: none;
+	display: inline-block;
+	margin-bottom: 26px;
+}
+html[data-design="greenhouse"] .g2-article .abody {
+	padding-left: 48px;
+}
+html[data-design="greenhouse"] .g2-article h1 {
+	font-size: clamp(34px, 4.6vw, 54px);
+	line-height: 1.02;
+	font-weight: 400;
+	margin: 0 0 8px;
+	letter-spacing: -0.01em;
+	text-wrap: balance;
+}
+html[data-design="greenhouse"] .g2-article .sub {
+	font-style: italic;
+	color: var(--leaf);
+	font-size: 18px;
+	margin-bottom: 36px;
+}
+html[data-design="greenhouse"] .g2-article .abody p {
+	font-size: 17.5px;
+	line-height: 1.8;
+	color: #332e22;
+	max-width: 66ch;
+	margin: 0 0 22px;
+}
+html[data-design="greenhouse"] .g2-article .abody p:first-of-type::first-letter {
+	font-size: 64px;
+	float: left;
+	line-height: 0.78;
+	padding: 8px 14px 0 0;
+	color: var(--accent);
+	font-style: italic;
+}
+html[data-design="greenhouse"] .g2-article .abody code {
+	font-family: var(--font-mono);
+	background: var(--pa2);
+	border: 1px solid var(--line2);
+	padding: 1px 5px;
+	font-size: 0.86em;
+}
+
+@media (max-width: 820px) {
+	html[data-design="greenhouse"] .g2-hero,
+	html[data-design="greenhouse"] .g2-work,
+	html[data-design="greenhouse"] .g2-exp,
+	html[data-design="greenhouse"] .g2-edu,
+	html[data-design="greenhouse"] .g2-note,
+	html[data-design="greenhouse"] .g2-article {
+		grid-template-columns: 1fr !important;
+	}
+	html[data-design="greenhouse"] .g2-margin,
+	html[data-design="greenhouse"] .g2-article .amar {
+		border-right: 0;
+		border-bottom: 1px solid var(--line);
+		padding: 0 0 20px;
+	}
+	html[data-design="greenhouse"] .g2-body,
+	html[data-design="greenhouse"] .g2-article .abody {
+		padding: 20px 0 0;
+	}
+	html[data-design="greenhouse"] .g2-work .meta {
+		text-align: left;
+	}
+	html[data-design="greenhouse"] .g2-edu .main {
+		border-right: 0;
+		border-bottom: 1px solid var(--line);
+	}
+	html[data-design="greenhouse"] .wrap {
+		padding-left: 20px !important;
+		padding-right: 20px !important;
+	}
+}
