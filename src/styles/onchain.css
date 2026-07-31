@@ -26,46 +26,98 @@ html[data-design="onchain"] .wrap {
 	margin: 0 auto;
 	padding: 0 34px;
 }
-html[data-design="onchain"] .o-top {
+html[data-design="onchain"] .o-nav {
+	position: sticky;
+	top: 0;
+	z-index: 50;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 16px 0;
+	padding: 14px max(34px, calc((100% - 1200px) / 2 + 34px));
+	background: var(--pa);
 	border-bottom: 2px solid var(--ink);
 	font-size: 11px;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
 }
-html[data-design="onchain"] .o-top .brand {
+html[data-design="onchain"] .o-nav .brand {
 	font-weight: 700;
 	display: flex;
 	align-items: center;
 	gap: 8px;
 }
-html[data-design="onchain"] .o-top .brand::before,
-html[data-design="onchain"] .o-top .brand::after {
+html[data-design="onchain"] .o-nav .brand::before,
+html[data-design="onchain"] .o-nav .brand::after {
 	content: "";
 	width: 9px;
 	height: 9px;
 	background: var(--ink);
 	display: inline-block;
 }
-html[data-design="onchain"] .o-top .st {
-	color: var(--soft);
+html[data-design="onchain"] .o-nav-links {
 	display: flex;
-	gap: 18px;
+	align-items: center;
+	gap: 22px;
 }
-html[data-design="onchain"] .o-top .st b {
-	color: var(--coral2);
-}
-html[data-design="onchain"] .o-nav a {
+html[data-design="onchain"] .o-nav-links a {
 	color: var(--soft);
 	text-decoration: none;
-	margin-left: 18px;
 	transition: color 0.2s;
 }
-html[data-design="onchain"] .o-nav a:hover {
+html[data-design="onchain"] .o-nav-links a:hover {
 	color: var(--coral2);
+}
+html[data-design="onchain"] .o-nav-drop {
+	position: relative;
+}
+html[data-design="onchain"] .o-nav-trigger {
+	font: inherit;
+	letter-spacing: inherit;
+	text-transform: inherit;
+	color: var(--soft);
+	background: none;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	transition: color 0.2s;
+}
+html[data-design="onchain"] .o-nav-drop:hover .o-nav-trigger,
+html[data-design="onchain"] .o-nav-drop:focus-within .o-nav-trigger {
+	color: var(--coral2);
+}
+html[data-design="onchain"] .o-nav-menu {
+	position: absolute;
+	top: calc(100% + 12px);
+	right: 0;
+	min-width: 150px;
+	display: flex;
+	flex-direction: column;
+	background: var(--pa);
+	border: 2px solid var(--ink);
+	box-shadow: 4px 4px 0 var(--ink);
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-4px);
+	transition: opacity 0.15s, transform 0.15s, visibility 0.15s;
+}
+html[data-design="onchain"] .o-nav-drop:hover .o-nav-menu,
+html[data-design="onchain"] .o-nav-drop:focus-within .o-nav-menu {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+html[data-design="onchain"] .o-nav-menu a {
+	color: var(--soft);
+	text-decoration: none;
+	padding: 10px 14px;
+	transition: color 0.2s, background 0.2s;
+}
+html[data-design="onchain"] .o-nav-menu a:hover {
+	color: var(--accent-ink);
+	background: var(--accent);
 }
 html[data-design="onchain"] .o-hero {
 	padding: 52px 0 44px;
@@ -311,15 +363,33 @@ html[data-design="onchain"] .o-proj .links a {
 	padding-bottom: 1px;
 }
 html[data-design="onchain"] .o-exp {
-	display: grid;
-	grid-template-columns: 150px 1fr 150px;
-	gap: 18px;
 	padding: 18px 0;
 	border-bottom: 1px dashed var(--line-soft);
-	align-items: baseline;
 }
 html[data-design="onchain"] .o-exp:last-child {
 	border-bottom: 0;
+}
+html[data-design="onchain"] .o-exp > summary {
+	display: grid;
+	grid-template-columns: 150px 1fr 150px 16px;
+	gap: 18px;
+	align-items: baseline;
+	list-style: none;
+	cursor: pointer;
+}
+html[data-design="onchain"] .o-exp > summary::-webkit-details-marker {
+	display: none;
+}
+html[data-design="onchain"] .o-exp .o-exp-caret {
+	color: var(--soft);
+	justify-self: end;
+	transition: transform 0.2s;
+}
+html[data-design="onchain"] .o-exp[open] .o-exp-caret {
+	transform: rotate(180deg);
+}
+html[data-design="onchain"] .o-exp:hover .o-exp-caret {
+	color: var(--coral2);
 }
 html[data-design="onchain"] .o-exp .pd {
 	font-size: 11px;
@@ -342,6 +412,25 @@ html[data-design="onchain"] .o-exp .ds {
 	font-size: 12.5px;
 	line-height: 1.6;
 	color: #3a352b;
+	list-style: none;
+	margin: 14px 0 0 168px;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+html[data-design="onchain"] .o-exp .ds li {
+	position: relative;
+	padding-left: 18px;
+}
+html[data-design="onchain"] .o-exp .ds li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0.5em;
+	width: 7px;
+	height: 7px;
+	background: var(--accent);
 }
 html[data-design="onchain"] .o-exp .lo {
 	font-size: 10.5px;
@@ -416,6 +505,50 @@ html[data-design="onchain"] .o-edu .cert::before {
 	height: 8px;
 	background: var(--accent);
 	display: inline-block;
+}
+html[data-design="onchain"] .o-skills {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+	margin-top: 26px;
+}
+html[data-design="onchain"] .o-skill-group .lab {
+	font-size: 10px;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: var(--soft);
+	margin-bottom: 10px;
+}
+html[data-design="onchain"] .o-skill-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+}
+html[data-design="onchain"] .o-skill-tag {
+	font-size: 9px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	padding: 4px 8px;
+	border: 1px solid var(--ink);
+	background: var(--pa);
+}
+html[data-design="onchain"] .o-footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 10px;
+	padding: 22px 0;
+	border-top: 2px solid var(--ink);
+	font-size: 10px;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--soft);
+}
+html[data-design="onchain"] .o-footer b {
+	color: var(--coral2);
+	font-weight: 700;
 }
 html[data-design="onchain"] .o-post {
 	display: grid;
@@ -528,9 +661,21 @@ html[data-design="onchain"] .o-article .body p b {
 	html[data-design="onchain"] .o-hero,
 	html[data-design="onchain"] .o-stats,
 	html[data-design="onchain"] .o-projs,
-	html[data-design="onchain"] .o-exp,
+	html[data-design="onchain"] .o-exp > summary,
 	html[data-design="onchain"] .o-edu {
 		grid-template-columns: 1fr !important;
+	}
+	html[data-design="onchain"] .o-exp > summary {
+		grid-template-columns: 1fr auto !important;
+	}
+	html[data-design="onchain"] .o-exp .pd {
+		grid-column: 1;
+	}
+	html[data-design="onchain"] .o-exp-caret {
+		grid-row: 1;
+	}
+	html[data-design="onchain"] .o-exp .ds {
+		margin-left: 0;
 	}
 	html[data-design="onchain"] .o-stat {
 		border-right: 0;
