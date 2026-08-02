@@ -45,6 +45,24 @@ html[data-design="onchain"] .o-nav .brand {
 	display: flex;
 	align-items: center;
 	gap: 8px;
+	color: inherit;
+	text-decoration: none;
+}
+html[data-design="onchain"] .o-404 {
+	min-height: calc(100dvh - 150px);
+	padding: 40px 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+html[data-design="onchain"] .o-404 .o-bio {
+	margin-top: 18px;
+}
+html[data-design="onchain"] .o-404 .o-actions {
+	margin-top: 26px;
+	justify-content: center;
 }
 html[data-design="onchain"] .o-nav .brand::before,
 html[data-design="onchain"] .o-nav .brand::after {
@@ -533,6 +551,8 @@ html[data-design="onchain"] .o-skill-tag {
 	border: 1px solid var(--ink);
 	background: var(--pa);
 }
+
+
 html[data-design="onchain"] .o-footer {
 	display: flex;
 	justify-content: space-between;
@@ -549,6 +569,13 @@ html[data-design="onchain"] .o-footer {
 html[data-design="onchain"] .o-footer b {
 	color: var(--coral2);
 	font-weight: 700;
+}
+html[data-design="onchain"] .o-footer a {
+	color: inherit;
+	transition: color 0.15s;
+}
+html[data-design="onchain"] .o-footer a:hover {
+	color: var(--accent);
 }
 html[data-design="onchain"] .o-post {
 	display: grid;

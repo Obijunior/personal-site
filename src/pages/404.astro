@@ -1,0 +1,45 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="404 · Henry Nwagwu" description="Page not found.">
+	<nav class="o-nav">
+		<a class="brand" href="/">HENRYNWAGWU.ME</a>
+		<div class="o-nav-links">
+			<a href="/#projects">projects</a>
+			<a href="/#experience">Experience</a>
+			<a href="/#education">Education</a>
+			<div class="o-nav-drop">
+				<button type="button" class="o-nav-trigger">
+					Contact
+					<svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1.5 3L4 5.5L6.5 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg>
+				</button>
+				<div class="o-nav-menu">
+					<a href="mailto:o.henry.nwagwu@gmail.com">Email</a>
+					<a href="https://linkedin.com/in/o-henry-nwagwu" target="_blank" rel="noopener">LinkedIn</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="wrap">
+		<section class="o-404">
+			<div class="o-kick">Error · Page not found</div>
+			<h1 class="o-name">4<span class="hl">0</span>4</h1>
+			<p class="o-bio">
+				This route doesn't exist — it may have moved, or never did. Head back and pick up
+				from the index.
+			</p>
+			<div class="o-actions">
+				<a class="o-btn primary" href="/">Back home →</a>
+				<a class="o-btn blue" href="mailto:o.henry.nwagwu@gmail.com">Contact →</a>
+			</div>
+		</section>
+
+		<footer class="o-footer">
+			<span>© 2026 Henry Nwagwu</span>
+			<span class="underline underline-offset-2"><a href="https://vending.henrynwagwu.me">looking for vending machines?</a></span>
+			<span>Built with <b>Astro</b></span>
+		</footer>
+	</div>
+</Layout>
