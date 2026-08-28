@@ -117,11 +117,25 @@ export const experiences: Experience[] = [
 		period: "05/2026 - 08/2026",
 		location: "Overland Park, KS",
 		description: [
-			"Developing full-stack internal financial tooling in Flask and SQL to automate tracking and recovery of ~$400k in missing capital through the corporate appeals process, improving reconciliation workflows across accounting operations.",
-			"Building an AWS-hosted internal LLM assistant featuring RAG, S3-backed document retrieval, semantic caching, rate limiting, and conversational search capabilities for finance teams.",
+			"Developed full-stack internal financial tooling in Flask and SQL to automate tracking and recovery of ~$27m in missing capital through the corporate appeals process, improving reconciliation workflows across accounting operations.",
+			"Built an AWS-hosted internal LLM assistant featuring RAG, S3-backed document retrieval, semantic caching, rate limiting, and conversational search capabilities for finance teams.",
 
 		],
-		technologies: ["Flask", "SQL", "SSMS", "Jira"],
+		technologies: ["Flask", "SQL", "SSMS", "Jira", "AWS (bedrock, S3, Lambda)"],
+	},
+	{
+		id: "i2s",
+		title: "Undergraduate Research Assistant",
+		company: "Institute for Information Sciences (I2S) / VICEROY Program",
+		period: "01/2025 - Present",
+		location: "Lawrence, KS",
+		description: [
+			"Currently researching prompt injection attacks and defenses, and their application in government/military workflows",
+			"Built a Ring-3 (userspace) rootkit 'Echidna' targeting the Linux kernel (tested on 6.14), with network/process/file hiding, privilege escalation, and removal prevention",
+			"Completed training in 5G/6G network security and cyber operations (recon., penetration testing, persistence techniques)",  
+			"Placed 7th/50 teams in the national Viceroy Cyber Competition (advanced CTF)"
+		],
+		technologies: ["C"]
 	},
 	{
 		id: "twl",
